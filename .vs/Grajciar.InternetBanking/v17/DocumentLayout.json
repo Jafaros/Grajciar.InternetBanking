@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "Grajciar.InternetBanking.WebAPI\\Program.cs",
               "ToolTip": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.WebAPI\\Program.cs",
               "RelativeToolTip": "Grajciar.InternetBanking.WebAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-30T09:28:01.375Z",
               "EditorCaption": ""
@@ -51,8 +51,7 @@
               "RelativeToolTip": "Grajciar.InternetBanking.Infrastructure\\Database\\Seeding\\UserInit.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T09:12:37.451Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-30T09:12:37.451Z"
             },
             {
               "$type": "Document",
@@ -64,8 +63,7 @@
               "RelativeToolTip": "Grajciar.InternetBanking.Domain\\Entities\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T08:14:28.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-30T08:14:28.98Z"
             },
             {
               "$type": "Document",
@@ -77,8 +75,7 @@
               "RelativeToolTip": "Grajciar.InternetBanking.Infrastructure\\Database\\InternetBankingDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T08:12:43.7Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-30T08:12:43.7Z"
             }
           ]
         }
