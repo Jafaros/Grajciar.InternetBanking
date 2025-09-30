@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\p_grajciar\\source\\repos\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Domain\\Grajciar.InternetBanking.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Domain\\Grajciar.InternetBanking.Domain.csproj",
       "projectName": "Grajciar.InternetBanking.Domain",
-      "projectPath": "C:\\Users\\p_grajciar\\source\\repos\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Domain\\Grajciar.InternetBanking.Domain.csproj",
+      "projectPath": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Domain\\Grajciar.InternetBanking.Domain.csproj",
       "packagesPath": "C:\\Users\\p_grajciar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\p_grajciar\\source\\repos\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Domain\\obj\\",
+      "outputPath": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

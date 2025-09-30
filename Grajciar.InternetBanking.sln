@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grajciar.InternetBanking.Web", "Grajciar.InternetBanking.Web\Grajciar.InternetBanking.Web.csproj", "{6EA0409B-5DEF-49DD-96E8-5C3428E54F33}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grajciar.InternetBanking.Domain", "Grajciar.InternetBanking.Domain\Grajciar.InternetBanking.Domain.csproj", "{204CC299-5C18-469E-99B6-887E5C57D7EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grajciar.InternetBanking.Infrastructure", "Grajciar.InternetBanking.Infrastructure\Grajciar.InternetBanking.Infrastructure.csproj", "{ECA9E523-1F9F-4094-B59C-245419ADDCDF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grajciar.InternetBanking.Application", "Grajciar.InternetBanking.Application\Grajciar.InternetBanking.Application.csproj", "{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grajciar.InternetBanking.WebAPI", "Grajciar.InternetBanking.WebAPI\Grajciar.InternetBanking.WebAPI.csproj", "{E23CD510-3DB9-45F4-A804-2AE22C4FE194}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6EA0409B-5DEF-49DD-96E8-5C3428E54F33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EA0409B-5DEF-49DD-96E8-5C3428E54F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EA0409B-5DEF-49DD-96E8-5C3428E54F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EA0409B-5DEF-49DD-96E8-5C3428E54F33}.Release|Any CPU.Build.0 = Release|Any CPU
 		{204CC299-5C18-469E-99B6-887E5C57D7EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{204CC299-5C18-469E-99B6-887E5C57D7EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{204CC299-5C18-469E-99B6-887E5C57D7EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E23CD510-3DB9-45F4-A804-2AE22C4FE194}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E23CD510-3DB9-45F4-A804-2AE22C4FE194}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E23CD510-3DB9-45F4-A804-2AE22C4FE194}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E23CD510-3DB9-45F4-A804-2AE22C4FE194}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

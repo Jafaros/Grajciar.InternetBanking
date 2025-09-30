@@ -1,0 +1,12 @@
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\bin\Debug\net9.0\Grajciar.InternetBanking.Domain.deps.json
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\bin\Debug\net9.0\Grajciar.InternetBanking.Domain.dll
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\bin\Debug\net9.0\Grajciar.InternetBanking.Domain.pdb
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\obj\Debug\net9.0\Grajciar.InternetBanking.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\obj\Debug\net9.0\Grajciar.InternetBanking.Domain.AssemblyInfoInputs.cache
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\obj\Debug\net9.0\Grajciar.InternetBanking.Domain.AssemblyInfo.cs
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\obj\Debug\net9.0\Grajciar.InternetBanking.Domain.csproj.CoreCompileInputs.cache
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\obj\Debug\net9.0\Grajciar.InternetBanking.Domain.sourcelink.json
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\obj\Debug\net9.0\Grajciar.InternetBanking.Domain.dll
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\obj\Debug\net9.0\refint\Grajciar.InternetBanking.Domain.dll
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\obj\Debug\net9.0\Grajciar.InternetBanking.Domain.pdb
+C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.Domain\obj\Debug\net9.0\ref\Grajciar.InternetBanking.Domain.dll
