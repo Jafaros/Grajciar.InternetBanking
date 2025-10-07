@@ -1,0 +1,11 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+### Create a new user via /admin/user/create
+POST http://localhost:5055/admin/user/create
+Content-Type: application/json
+
+{
+  "username": "test.vysel",
+  "firstname": "Test",
+  "lastname": "Vyšel"
+}
