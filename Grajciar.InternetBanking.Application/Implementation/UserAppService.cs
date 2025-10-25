@@ -17,7 +17,7 @@ namespace Grajciar.InternetBanking.Application.Implementation
             return _dbContext.Users.ToList();
         }
 
-        public User Get(int id) {
+        public User? Get(int id) {
             return _dbContext.Users.Include(user => user.Accounts).FirstOrDefault(user => user.Id == id);
         }
 

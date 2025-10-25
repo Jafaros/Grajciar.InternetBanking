@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.application\\implementation\\cardappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|solutionrelative:grajciar.internetbanking.application\\implementation\\cardappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.application\\abstraction\\icardappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|solutionrelative:grajciar.internetbanking.application\\abstraction\\icardappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.application\\implementation\\transactionappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|solutionrelative:grajciar.internetbanking.application\\implementation\\transactionappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.application\\abstraction\\itransactionappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|solutionrelative:grajciar.internetbanking.application\\abstraction\\itransactionappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.application\\abstraction\\iaccountappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|solutionrelative:grajciar.internetbanking.application\\abstraction\\iaccountappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.application\\implementation\\bankappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|solutionrelative:grajciar.internetbanking.application\\implementation\\bankappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.application\\abstraction\\ibankappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|solutionrelative:grajciar.internetbanking.application\\abstraction\\ibankappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.application\\abstraction\\iuserappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|solutionrelative:grajciar.internetbanking.application\\abstraction\\iuserappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.application\\implementation\\userappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|solutionrelative:grajciar.internetbanking.application\\implementation\\userappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.application\\implementation\\accountappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|solutionrelative:grajciar.internetbanking.application\\implementation\\accountappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.application\\abstraction\\iaccountappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DDE98580-9FD5-4561-8BCF-EA2C89C3B8F0}|Grajciar.InternetBanking.Application\\Grajciar.InternetBanking.Application.csproj|solutionrelative:grajciar.internetbanking.application\\abstraction\\iaccountappservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,46 +46,85 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TransactionAppService.cs",
+              "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Implementation\\TransactionAppService.cs",
+              "RelativeDocumentMoniker": "Grajciar.InternetBanking.Application\\Implementation\\TransactionAppService.cs",
+              "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Implementation\\TransactionAppService.cs",
+              "RelativeToolTip": "Grajciar.InternetBanking.Application\\Implementation\\TransactionAppService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAChAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:13:25.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CardAppService.cs",
+              "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Implementation\\CardAppService.cs",
+              "RelativeDocumentMoniker": "Grajciar.InternetBanking.Application\\Implementation\\CardAppService.cs",
+              "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Implementation\\CardAppService.cs",
+              "RelativeToolTip": "Grajciar.InternetBanking.Application\\Implementation\\CardAppService.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAkwCkAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:07:05.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BankAppService.cs",
+              "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Implementation\\BankAppService.cs",
+              "RelativeDocumentMoniker": "Grajciar.InternetBanking.Application\\Implementation\\BankAppService.cs",
+              "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Implementation\\BankAppService.cs",
+              "RelativeToolTip": "Grajciar.InternetBanking.Application\\Implementation\\BankAppService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-25T13:01:00.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ICardAppService.cs",
               "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Abstraction\\ICardAppService.cs",
               "RelativeDocumentMoniker": "Grajciar.InternetBanking.Application\\Abstraction\\ICardAppService.cs",
               "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Abstraction\\ICardAppService.cs",
               "RelativeToolTip": "Grajciar.InternetBanking.Application\\Abstraction\\ICardAppService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-25T12:51:28.539Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ITransactionAppService.cs",
               "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Abstraction\\ITransactionAppService.cs",
               "RelativeDocumentMoniker": "Grajciar.InternetBanking.Application\\Abstraction\\ITransactionAppService.cs",
               "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Abstraction\\ITransactionAppService.cs",
               "RelativeToolTip": "Grajciar.InternetBanking.Application\\Abstraction\\ITransactionAppService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-25T12:45:58.846Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "IBankAppService.cs",
               "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Abstraction\\IBankAppService.cs",
               "RelativeDocumentMoniker": "Grajciar.InternetBanking.Application\\Abstraction\\IBankAppService.cs",
               "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Abstraction\\IBankAppService.cs",
               "RelativeToolTip": "Grajciar.InternetBanking.Application\\Abstraction\\IBankAppService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-25T12:36:56.864Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "IAccountAppService.cs",
               "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Abstraction\\IAccountAppService.cs",
               "RelativeDocumentMoniker": "Grajciar.InternetBanking.Application\\Abstraction\\IAccountAppService.cs",
@@ -93,47 +132,7 @@
               "RelativeToolTip": "Grajciar.InternetBanking.Application\\Abstraction\\IAccountAppService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T12:09:11.43Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AccountAppService.cs",
-              "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Implementation\\AccountAppService.cs",
-              "RelativeDocumentMoniker": "Grajciar.InternetBanking.Application\\Implementation\\AccountAppService.cs",
-              "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Implementation\\AccountAppService.cs",
-              "RelativeToolTip": "Grajciar.InternetBanking.Application\\Implementation\\AccountAppService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T12:24:30.549Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IUserAppService.cs",
-              "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Abstraction\\IUserAppService.cs",
-              "RelativeDocumentMoniker": "Grajciar.InternetBanking.Application\\Abstraction\\IUserAppService.cs",
-              "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Abstraction\\IUserAppService.cs",
-              "RelativeToolTip": "Grajciar.InternetBanking.Application\\Abstraction\\IUserAppService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T12:10:58.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserAppService.cs",
-              "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Implementation\\UserAppService.cs",
-              "RelativeDocumentMoniker": "Grajciar.InternetBanking.Application\\Implementation\\UserAppService.cs",
-              "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Application\\Implementation\\UserAppService.cs",
-              "RelativeToolTip": "Grajciar.InternetBanking.Application\\Implementation\\UserAppService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-25T09:32:59.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-25T12:09:11.43Z"
             }
           ]
         }

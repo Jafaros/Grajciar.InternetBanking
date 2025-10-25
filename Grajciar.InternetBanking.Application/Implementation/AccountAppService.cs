@@ -44,7 +44,7 @@ namespace Grajciar.InternetBanking.Application.Implementation
             return deleted;
         }
 
-        public Account Get(int id)
+        public Account? Get(int id)
         {
             return _dbContext.Accounts.Include(a => a.Transactions).FirstOrDefault(a => a.Id == id);
         }
