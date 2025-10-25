@@ -17,6 +17,17 @@ namespace Grajciar.InternetBanking.WebAPI
             builder.Services.AddControllers();
 
             builder.Services.AddScoped<IUserAppService, UserAppService>();
+            builder.Services.AddScoped<IAccountAppService, AccountAppService>();
+            builder.Services.AddScoped<IBankAppService, BankAppService>();
+            builder.Services.AddScoped<ICardAppService, CardAppService>();
+            builder.Services.AddScoped<ITransactionAppService, TransactionAppService>();
+
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.ReferenceHandler =
+                        System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+                });
 
             var app = builder.Build();
 

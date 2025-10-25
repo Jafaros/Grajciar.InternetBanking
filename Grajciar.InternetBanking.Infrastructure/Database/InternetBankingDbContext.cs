@@ -28,6 +28,12 @@ namespace Grajciar.InternetBanking.Infrastructure.Database
 
             var userInit = new UserInit();
             modelBuilder.Entity<User>().HasData(userInit.GenerateUsers3());
+            var bankInit = new BankInit();
+            modelBuilder.Entity<Bank>().HasData(bankInit.GenerateBanks3());
+            var accountInit = new AccountInit();
+            modelBuilder.Entity<Account>().HasData(accountInit.GenerateAccountsFor3Users());
+            var cardInit = new CardInit();
+            modelBuilder.Entity<Card>().HasData(cardInit.GenerateCards3());
         }
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("Admin/[controller]/[action]")]
+    [Route("[area]/[controller]/[action]")]
     [ApiController]
     public class HomeController : Controller
     {

@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("Admin/[controller]/[action]")]
+    [Route("[area]/[controller]/[action]")]
     [ApiController]
-    public class UserController : Controller
+    public class UserController : ControllerBase
     {
         IUserAppService _userAppService;
 
@@ -25,7 +25,7 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
 
         [HttpGet("{id}")]
         public IActionResult Get(int id) { 
-            User user = _userAppService.Get(id);
+            User? user = _userAppService.Get(id);
 
             if (user == null)
             {

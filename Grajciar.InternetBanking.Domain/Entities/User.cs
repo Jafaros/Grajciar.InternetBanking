@@ -23,7 +23,7 @@ namespace Grajciar.InternetBanking.Domain.Entities
         public UserType UserType { get; set; } = UserType.USER;
 
         // Relationships
-        public IList<Account> Accounts { get; set; } = new List<Account>();
+        public ICollection<Account> Accounts { get; set; } = new List<Account>();
 
         [NotMapped]
         public string FullName => $"{FirstName} {LastName}";

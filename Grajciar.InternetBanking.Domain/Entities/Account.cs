@@ -1,5 +1,6 @@
 ﻿using Grajciar.InternetBanking.Domain.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Grajciar.InternetBanking.Domain.Entities
 {
@@ -21,7 +22,7 @@ namespace Grajciar.InternetBanking.Domain.Entities
         public User User { get; set; }
         public int BankId { get; set; }
         public Bank Bank { get; set; }
-        public IList<Card> Cards { get; set; } = new List<Card>();
-        public IList<Transaction> Transactions { get; set; } = new List<Transaction>();
+        public ICollection<Card> Cards { get; set; } = new List<Card>();
+        public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
     }
 }

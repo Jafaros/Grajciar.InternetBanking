@@ -7,5 +7,37 @@ Content-Type: application/json
 {
   "username": "test.vysel",
   "firstname": "Test",
-  "lastname": "Vyšel"
+  "lastname": "Vyšel",
+  "email": "test@test.cz",
+  "tel": "+420987654321",
+  "dateofbirth": "1999-01-01T00:00:00",
+  "passwordHash": "hashedpassword"
+}
+
+### Get all users /admin/user/index
+GET http://localhost:5055/admin/user/index
+
+
+### Get all banks /admin/bank/index
+GET http://localhost:5055/admin/bank/index
+
+
+### Get user with ID 1 /admin/user/get/1
+GET http://localhost:5055/admin/user/get/1
+
+### Get cards for account with ID 1 /admin/card/AccountCards/1
+GET http://localhost:5055/admin/card/AccountCards/1
+
+### Get accounts for user with ID 1 /admin/account/SelectByUser/1
+GET http://localhost:5055/admin/account/SelectByUser/1
+
+### Get account with ID 2 /admin/account/get/2
+GET http://localhost:5055/admin/account/get/2
+
+### Update account with ID 3 /admin/account/update/3 - won't work TODO: DTO for updates
+PATCH http://localhost:5055/admin/account/update/3
+Content-Type: application/json
+
+{
+    "balance": "3000"
 }

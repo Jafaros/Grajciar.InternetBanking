@@ -56,6 +56,38 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Account");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccountNumber = "123456789",
+                            Balance = 1000m,
+                            BankId = 1,
+                            CreatedAt = new DateTime(2025, 10, 25, 15, 32, 46, 289, DateTimeKind.Utc).AddTicks(3817),
+                            Type = 0,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccountNumber = "321654987",
+                            Balance = 500m,
+                            BankId = 2,
+                            CreatedAt = new DateTime(2025, 10, 25, 15, 32, 46, 289, DateTimeKind.Utc).AddTicks(4270),
+                            Type = 3,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccountNumber = "987654321",
+                            Balance = 2000m,
+                            BankId = 3,
+                            CreatedAt = new DateTime(2025, 10, 25, 15, 32, 46, 289, DateTimeKind.Utc).AddTicks(4272),
+                            Type = 2,
+                            UserId = 3
+                        });
                 });
 
             modelBuilder.Entity("Grajciar.InternetBanking.Domain.Entities.Bank", b =>
@@ -85,6 +117,32 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Banks");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Masarykova XYZ, Brno",
+                            BankCode = "0001",
+                            Name = "Banka 1",
+                            SwiftCode = "BANK1CZ"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Masarykova XYZ, Brno",
+                            BankCode = "0020",
+                            Name = "Banka 2",
+                            SwiftCode = "BANK2CZ"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Masarykova XYZ, Brno",
+                            BankCode = "0300",
+                            Name = "Banka 3",
+                            SwiftCode = "BANK3CZ"
+                        });
                 });
 
             modelBuilder.Entity("Grajciar.InternetBanking.Domain.Entities.Card", b =>
@@ -129,6 +187,44 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                     b.HasIndex("AccountId");
 
                     b.ToTable("Card");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccountId = 1,
+                            CardHolderName = "Petr Grajciar",
+                            CardNumber = "0123456789012345",
+                            CreatedAt = new DateTime(2025, 10, 25, 15, 32, 46, 289, DateTimeKind.Utc).AddTicks(7986),
+                            ExpirationDate = new DateTime(2026, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsBlocked = false,
+                            SecurityCode = "123",
+                            Type = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccountId = 2,
+                            CardHolderName = "Karel Chleba",
+                            CardNumber = "1234951274563654",
+                            CreatedAt = new DateTime(2025, 10, 25, 15, 32, 46, 289, DateTimeKind.Utc).AddTicks(8122),
+                            ExpirationDate = new DateTime(2027, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsBlocked = false,
+                            SecurityCode = "213",
+                            Type = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccountId = 3,
+                            CardHolderName = "Šimon Rohlík",
+                            CardNumber = "1478852365891452",
+                            CreatedAt = new DateTime(2025, 10, 25, 15, 32, 46, 289, DateTimeKind.Utc).AddTicks(8123),
+                            ExpirationDate = new DateTime(2025, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsBlocked = false,
+                            SecurityCode = "231",
+                            Type = 0
+                        });
                 });
 
             modelBuilder.Entity("Grajciar.InternetBanking.Domain.Entities.Transaction", b =>
@@ -239,7 +335,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2025, 10, 25, 11, 29, 18, 991, DateTimeKind.Utc).AddTicks(1188),
+                            CreatedAt = new DateTime(2025, 10, 25, 15, 32, 46, 288, DateTimeKind.Utc).AddTicks(2393),
                             DateOfBirth = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "petrgrajciar@test.cz",
                             FirstName = "Petr",
@@ -252,7 +348,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2025, 10, 25, 11, 29, 18, 991, DateTimeKind.Utc).AddTicks(2390),
+                            CreatedAt = new DateTime(2025, 10, 25, 15, 32, 46, 288, DateTimeKind.Utc).AddTicks(3639),
                             DateOfBirth = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "karelchleba@test.cz",
                             FirstName = "Karel",
@@ -265,7 +361,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2025, 10, 25, 11, 29, 18, 991, DateTimeKind.Utc).AddTicks(2394),
+                            CreatedAt = new DateTime(2025, 10, 25, 15, 32, 46, 288, DateTimeKind.Utc).AddTicks(3642),
                             DateOfBirth = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "simonrohlik@test.cz",
                             FirstName = "Šimon",

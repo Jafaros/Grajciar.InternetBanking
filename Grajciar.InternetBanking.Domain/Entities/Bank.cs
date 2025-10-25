@@ -17,6 +17,6 @@ namespace Grajciar.InternetBanking.Domain.Entities
         public string SwiftCode { get; set; }
         
         // Relationships
-        public IList<Account> Accounts { get; set; } = new List<Account>();
+        public ICollection<Account> Accounts { get; set; } = new List<Account>();
     }
 }
