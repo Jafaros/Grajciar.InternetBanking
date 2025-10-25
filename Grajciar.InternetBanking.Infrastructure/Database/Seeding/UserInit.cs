@@ -16,9 +16,13 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
             var u1 = new User()
             { 
                 Id = 1,
-                Username = "petrgrajciar",
+                Username = "petrgrajciar",             
                 FirstName = "Petr",
-                LastName = "Grajciar"
+                LastName = "Grajciar",
+                Email = "petrgrajciar@test.cz",
+                Tel = "+420123456789",
+                PasswordHash = "hashedpassword123",
+                DateOfBirth = new DateTime(2000, 1, 1),
             };
 
             var u2 = new User()
@@ -26,7 +30,11 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
                 Id = 2,
                 Username = "karel",
                 FirstName = "Karel",
-                LastName = "Chleba"
+                LastName = "Chleba",
+                Email = "karelchleba@test.cz",
+                Tel = "+420123456789",
+                PasswordHash = "hashedpassword123",
+                DateOfBirth = new DateTime(2000, 1, 1)
             };
 
             var u3 = new User()
@@ -34,7 +42,11 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
                 Id = 3,
                 Username = "simon",
                 FirstName = "Šimon",
-                LastName = "Rohlík"
+                LastName = "Rohlík",
+                Email = "simonrohlik@test.cz",
+                Tel = "+420123456789",
+                PasswordHash = "hashedpassword123",
+                DateOfBirth = new DateTime(2000, 1, 1)
             };
 
             users.AddRange(u1, u2, u3);

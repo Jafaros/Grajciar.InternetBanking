@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Grajciar.InternetBanking.WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8cc4c399d590344d03d109cc4fc03ae13a97a668")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01a801ee53031c8026f8d427a1aa44ee682ea094")]
 [assembly: System.Reflection.AssemblyProductAttribute("Grajciar.InternetBanking.WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Grajciar.InternetBanking.WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

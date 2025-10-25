@@ -12,6 +12,11 @@ namespace Grajciar.InternetBanking.Infrastructure.Database
     public class InternetBankingDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Card> Cards { get; set; }
+        public DbSet<Bank> Banks { get; set; }
+
         public InternetBankingDbContext(DbContextOptions options) : base(options)
         {
 

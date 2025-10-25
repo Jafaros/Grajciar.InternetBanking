@@ -27,12 +27,65 @@
   },
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.UserController",
+    "Method": "Delete",
+    "RelativePath": "Admin/User/Delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.UserController",
+    "Method": "Get",
+    "RelativePath": "Admin/User/Get/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.UserController",
     "Method": "Index",
     "RelativePath": "Admin/User/Index",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.UserController",
+    "Method": "Update",
+    "RelativePath": "Admin/User/Update/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "user",
+        "Type": "Grajciar.InternetBanking.Domain.Entities.User",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

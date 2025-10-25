@@ -20,27 +20,10 @@ namespace Grajciar.InternetBanking.WebAPI
 
             var app = builder.Build();
 
+            app.UseHttpsRedirection();
+            app.UseAuthorization();
+
             app.MapControllers();
-
-            app.MapControllerRoute(
-                  name: "default",
-                  pattern: "{controller=Home}/{action=Index}/{id?}"
-            );
-
-            app.MapControllerRoute(
-                  name: "home_area_get",
-                  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-            );
-
-            app.MapControllerRoute(
-                  name: "user_area_get",
-                  pattern: "{area:exists}/{controller=User}/{action=Index}/{id?}"
-            );
-
-            app.MapControllerRoute(
-                  name: "user_area_create",
-                  pattern: "{area:exists}/{controller=User}/{action=Create}"
-            );
 
             app.Run();
         }
