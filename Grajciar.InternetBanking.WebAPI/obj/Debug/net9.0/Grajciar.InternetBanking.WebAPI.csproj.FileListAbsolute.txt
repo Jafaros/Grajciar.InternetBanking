@@ -507,3 +507,8 @@ C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetB
 C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\p_grajciar\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll

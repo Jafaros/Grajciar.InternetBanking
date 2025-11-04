@@ -1,20 +1,26 @@
 ﻿using Grajciar.InternetBanking.Domain.Entities;
 using Grajciar.InternetBanking.Domain.Enums;
+using Grajciar.InternetBanking.Domain.Interfaces;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Grajciar.InternetBanking.Infrastructure.Identity
 {
     [Table(nameof(User))]
-    public class User : IdentityUser<int>
+    public class User : IdentityUser<int>, IUser
     {
-        public int Id { get; set; }
-
-        public string Username { get; set; }
+        [Required]
+        public string UserName { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [EmailAddress]
         public string Email { get; set; }
-        public string Tel { get; set; }
+        [Phone]
+        public string? Tel { get; set; }
 
         public string PasswordHash { get; set; }
 

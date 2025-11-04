@@ -15,7 +15,6 @@ namespace Grajciar.InternetBanking.Infrastructure.Database
 {
     public class InternetBankingDbContext : IdentityDbContext<User, Role, int>
     {
-        public DbSet<User> Users { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Card> Cards { get; set; }
@@ -30,6 +29,14 @@ namespace Grajciar.InternetBanking.Infrastructure.Database
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Account>(entity =>
+            {
+                entity.HasOne<User>()
+                      .WithMany(u => u.Accounts)
+                      .HasForeignKey(a => a.UserId)
+                      .HasPrincipalKey(u => u.Id);
+            });
+
             RolesInit rolesInit = new RolesInit();
             modelBuilder.Entity<Role>().HasData(rolesInit.GetRolesAMC());
 
@@ -37,7 +44,9 @@ namespace Grajciar.InternetBanking.Infrastructure.Database
             User admin = userInit.GetAdmin();
             User manager = userInit.GetManager();
 
-            modelBuilder.Entity<User>().HasData(admin, manager, userInit.GenerateUsers3());
+            modelBuilder.Entity<User>().HasData(
+                userInit.GenerateUsers3().Concat([admin, manager]).ToArray()
+            );
 
             UserRolesInit userRolesInit = new UserRolesInit();
             List<IdentityUserRole<int>> adminUserRoles = userRolesInit.GetRolesForAdmin();
@@ -48,10 +57,13 @@ namespace Grajciar.InternetBanking.Infrastructure.Database
 
             var bankInit = new BankInit();
             modelBuilder.Entity<Bank>().HasData(bankInit.GenerateBanks3());
+
+            modelBuilder.Entity<Account>().HasOne<User>(e => e.User as User).WithMany(u => u.Accounts);
             var accountInit = new AccountInit();
             modelBuilder.Entity<Account>().HasData(accountInit.GenerateAccountsFor3Users());
+
             var cardInit = new CardInit();
-            modelBuilder.Entity<Card>().HasData(cardInit.GenerateCards3());       
+            modelBuilder.Entity<Card>().HasData(cardInit.GenerateCards3());
         }
     }
 }

@@ -15,8 +15,8 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
 
             var u1 = new User()
             { 
-                Id = 1,
-                Username = "petrgrajciar",             
+                Id = 3,
+                UserName = "petrgrajciar",             
                 FirstName = "Petr",
                 LastName = "Grajciar",
                 Email = "petrgrajciar@test.cz",
@@ -27,8 +27,8 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
 
             var u2 = new User()
             {
-                Id = 2,
-                Username = "karel",
+                Id = 4,
+                UserName = "karel",
                 FirstName = "Karel",
                 LastName = "Chleba",
                 Email = "karelchleba@test.cz",
@@ -39,8 +39,8 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
 
             var u3 = new User()
             {
-                Id = 3,
-                Username = "simon",
+                Id = 5,
+                UserName = "simon",
                 FirstName = "Šimon",
                 LastName = "Rohlík",
                 Email = "simonrohlik@test.cz",
@@ -88,7 +88,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
                 Id = 2,
                 FirstName = "Managerek",
                 LastName = "Managerovy",
-                Username = "manager",
+                UserName = "manager",
                 Email = "manager@manager.cz",
                 EmailConfirmed = true,
                 PasswordHash = "AQAAAAEAACcQAAAAEOzeajp5etRMZn7TWj9lhDMJ2GSNTtljLWVIWivadWXNMz8hj6mZ9iDR+alfEUHEMQ==",

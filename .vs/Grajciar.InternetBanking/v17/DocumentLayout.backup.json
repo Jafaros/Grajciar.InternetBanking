@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\",
+  "WorkspaceRootPath": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E23CD510-3DB9-45F4-A804-2AE22C4FE194}|Grajciar.InternetBanking.WebAPI\\Grajciar.InternetBanking.WebAPI.csproj|c:\\users\\p_grajciar\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{ECA9E523-1F9F-4094-B59C-245419ADDCDF}|Grajciar.InternetBanking.Infrastructure\\Grajciar.InternetBanking.Infrastructure.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.infrastructure\\identity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA9E523-1F9F-4094-B59C-245419ADDCDF}|Grajciar.InternetBanking.Infrastructure\\Grajciar.InternetBanking.Infrastructure.csproj|solutionrelative:grajciar.internetbanking.infrastructure\\identity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E23CD510-3DB9-45F4-A804-2AE22C4FE194}|Grajciar.InternetBanking.WebAPI\\Grajciar.InternetBanking.WebAPI.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E23CD510-3DB9-45F4-A804-2AE22C4FE194}|Grajciar.InternetBanking.WebAPI\\Grajciar.InternetBanking.WebAPI.csproj|solutionrelative:grajciar.internetbanking.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECA9E523-1F9F-4094-B59C-245419ADDCDF}|Grajciar.InternetBanking.Infrastructure\\Grajciar.InternetBanking.Infrastructure.csproj|c:\\users\\p_grajciar\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.infrastructure\\database\\internetbankingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{204CC299-5C18-469E-99B6-887E5C57D7EA}|Grajciar.InternetBanking.Domain\\Grajciar.InternetBanking.Domain.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.domain\\entities\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{204CC299-5C18-469E-99B6-887E5C57D7EA}|Grajciar.InternetBanking.Domain\\Grajciar.InternetBanking.Domain.csproj|solutionrelative:grajciar.internetbanking.domain\\entities\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{204CC299-5C18-469E-99B6-887E5C57D7EA}|Grajciar.InternetBanking.Domain\\Grajciar.InternetBanking.Domain.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.domain\\interfaces\\iuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{204CC299-5C18-469E-99B6-887E5C57D7EA}|Grajciar.InternetBanking.Domain\\Grajciar.InternetBanking.Domain.csproj|solutionrelative:grajciar.internetbanking.domain\\interfaces\\iuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA9E523-1F9F-4094-B59C-245419ADDCDF}|Grajciar.InternetBanking.Infrastructure\\Grajciar.InternetBanking.Infrastructure.csproj|c:\\users\\grajc\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.infrastructure\\database\\internetbankingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ECA9E523-1F9F-4094-B59C-245419ADDCDF}|Grajciar.InternetBanking.Infrastructure\\Grajciar.InternetBanking.Infrastructure.csproj|solutionrelative:grajciar.internetbanking.infrastructure\\database\\internetbankingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECA9E523-1F9F-4094-B59C-245419ADDCDF}|Grajciar.InternetBanking.Infrastructure\\Grajciar.InternetBanking.Infrastructure.csproj|c:\\users\\p_grajciar\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.infrastructure\\identity\\enums\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ECA9E523-1F9F-4094-B59C-245419ADDCDF}|Grajciar.InternetBanking.Infrastructure\\Grajciar.InternetBanking.Infrastructure.csproj|solutionrelative:grajciar.internetbanking.infrastructure\\identity\\enums\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECA9E523-1F9F-4094-B59C-245419ADDCDF}|Grajciar.InternetBanking.Infrastructure\\Grajciar.InternetBanking.Infrastructure.csproj|c:\\users\\p_grajciar\\documents\\github\\grajciar.internetbanking\\grajciar.internetbanking.infrastructure\\identity\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ECA9E523-1F9F-4094-B59C-245419ADDCDF}|Grajciar.InternetBanking.Infrastructure\\Grajciar.InternetBanking.Infrastructure.csproj|solutionrelative:grajciar.internetbanking.infrastructure\\identity\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,54 +39,64 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Infrastructure\\Identity\\User.cs",
+              "RelativeDocumentMoniker": "Grajciar.InternetBanking.Infrastructure\\Identity\\User.cs",
+              "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Infrastructure\\Identity\\User.cs",
+              "RelativeToolTip": "Grajciar.InternetBanking.Infrastructure\\Identity\\User.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T15:26:01.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IUser.cs",
+              "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Domain\\Interfaces\\IUser.cs",
+              "RelativeDocumentMoniker": "Grajciar.InternetBanking.Domain\\Interfaces\\IUser.cs",
+              "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Domain\\Interfaces\\IUser.cs",
+              "RelativeToolTip": "Grajciar.InternetBanking.Domain\\Interfaces\\IUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:36:43.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Domain\\Entities\\Account.cs",
+              "RelativeDocumentMoniker": "Grajciar.InternetBanking.Domain\\Entities\\Account.cs",
+              "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Domain\\Entities\\Account.cs",
+              "RelativeToolTip": "Grajciar.InternetBanking.Domain\\Entities\\Account.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T10:27:26.717Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.WebAPI\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "Grajciar.InternetBanking.WebAPI\\Program.cs",
-              "ToolTip": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.WebAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.WebAPI\\Program.cs",
               "RelativeToolTip": "Grajciar.InternetBanking.WebAPI\\Program.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwB8AAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwBQAAACGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-04T09:28:51.315Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "InternetBankingDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Infrastructure\\Database\\InternetBankingDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Infrastructure\\Database\\InternetBankingDbContext.cs",
               "RelativeDocumentMoniker": "Grajciar.InternetBanking.Infrastructure\\Database\\InternetBankingDbContext.cs",
-              "ToolTip": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Infrastructure\\Database\\InternetBankingDbContext.cs",
+              "ToolTip": "C:\\Users\\grajc\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Infrastructure\\Database\\InternetBankingDbContext.cs",
               "RelativeToolTip": "Grajciar.InternetBanking.Infrastructure\\Database\\InternetBankingDbContext.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACkAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAuwDUAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T09:21:19.073Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Role.cs",
-              "DocumentMoniker": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Infrastructure\\Identity\\Role.cs",
-              "RelativeDocumentMoniker": "Grajciar.InternetBanking.Infrastructure\\Identity\\Role.cs",
-              "ToolTip": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Infrastructure\\Identity\\Role.cs",
-              "RelativeToolTip": "Grajciar.InternetBanking.Infrastructure\\Identity\\Role.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T09:17:59.106Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Roles.cs",
-              "DocumentMoniker": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Infrastructure\\Identity\\Enums\\Roles.cs",
-              "RelativeDocumentMoniker": "Grajciar.InternetBanking.Infrastructure\\Identity\\Enums\\Roles.cs",
-              "ToolTip": "C:\\Users\\p_grajciar\\Documents\\GitHub\\Grajciar.InternetBanking\\Grajciar.InternetBanking.Infrastructure\\Identity\\Enums\\Roles.cs",
-              "RelativeToolTip": "Grajciar.InternetBanking.Infrastructure\\Identity\\Enums\\Roles.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T09:17:14.76Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-04T09:21:19.073Z"
             }
           ]
         }

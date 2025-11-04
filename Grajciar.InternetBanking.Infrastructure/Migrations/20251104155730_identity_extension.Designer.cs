@@ -4,6 +4,7 @@ using Grajciar.InternetBanking.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Grajciar.InternetBanking.Infrastructure.Migrations
 {
     [DbContext(typeof(InternetBankingDbContext))]
-    partial class InternetBankingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251104155730_identity_extension")]
+    partial class identity_extension
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

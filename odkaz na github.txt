@@ -1,0 +1,3 @@
+Odkaz na projekt včetně dokumentace v souboru Návrh.docx + jsem navíc udělal i API endpointy v controllerech umístěných v Admin area
+
+https://github.com/Jafaros/Grajciar.InternetBanking
