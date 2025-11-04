@@ -1,15 +1,18 @@
 ﻿using Grajciar.InternetBanking.Domain.Entities;
 using Grajciar.InternetBanking.Infrastructure.Database.Seeding;
+using Grajciar.InternetBanking.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using User = Grajciar.InternetBanking.Infrastructure.Identity.User;
 
 namespace Grajciar.InternetBanking.Infrastructure.Database
 {
-    public class InternetBankingDbContext : DbContext
+    public class InternetBankingDbContext : IdentityDbContext<User, Role, int>
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Account> Accounts { get; set; }
@@ -34,6 +37,9 @@ namespace Grajciar.InternetBanking.Infrastructure.Database
             modelBuilder.Entity<Account>().HasData(accountInit.GenerateAccountsFor3Users());
             var cardInit = new CardInit();
             modelBuilder.Entity<Card>().HasData(cardInit.GenerateCards3());
+
+            // roles init
+            
         }
     }
 }
