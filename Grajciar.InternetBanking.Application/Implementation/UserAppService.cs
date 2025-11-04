@@ -1,5 +1,5 @@
 ﻿using Grajciar.InternetBanking.Application.Abstraction;
-using Grajciar.InternetBanking.Domain.Entities;
+using Grajciar.InternetBanking.Infrastructure.Identity;
 using Grajciar.InternetBanking.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 

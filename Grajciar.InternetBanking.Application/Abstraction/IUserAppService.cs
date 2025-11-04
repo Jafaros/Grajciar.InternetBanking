@@ -1,4 +1,4 @@
-﻿using Grajciar.InternetBanking.Domain.Entities;
+﻿using Grajciar.InternetBanking.Infrastructure.Identity;
 
 namespace Grajciar.InternetBanking.Application.Abstraction
 {

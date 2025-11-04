@@ -1,6 +1,8 @@
 using Grajciar.InternetBanking.Application.Abstraction;
 using Grajciar.InternetBanking.Application.Implementation;
 using Grajciar.InternetBanking.Infrastructure.Database;
+using Grajciar.InternetBanking.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Grajciar.InternetBanking.WebAPI
@@ -15,6 +17,8 @@ namespace Grajciar.InternetBanking.WebAPI
             ServerVersion serverVersion = new MySqlServerVersion("8.0.43");
             builder.Services.AddDbContext<InternetBankingDbContext>(options => options.UseMySql(connectionString, serverVersion));
             builder.Services.AddControllers();
+
+            builder.Services.AddIdentity<User, Role>().AddEntityFrameworkStores<InternetBankingDbContext>().AddDefaultTokenProviders();
 
             builder.Services.AddScoped<IUserAppService, UserAppService>();
             builder.Services.AddScoped<IAccountAppService, AccountAppService>();

@@ -1,6 +1,7 @@
 ﻿using Grajciar.InternetBanking.Domain.Entities;
 using Grajciar.InternetBanking.Infrastructure.Database.Seeding;
 using Grajciar.InternetBanking.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -29,17 +30,28 @@ namespace Grajciar.InternetBanking.Infrastructure.Database
         {
             base.OnModelCreating(modelBuilder);
 
-            var userInit = new UserInit();
-            modelBuilder.Entity<User>().HasData(userInit.GenerateUsers3());
+            RolesInit rolesInit = new RolesInit();
+            modelBuilder.Entity<Role>().HasData(rolesInit.GetRolesAMC());
+
+            UserInit userInit = new UserInit();
+            User admin = userInit.GetAdmin();
+            User manager = userInit.GetManager();
+
+            modelBuilder.Entity<User>().HasData(admin, manager, userInit.GenerateUsers3());
+
+            UserRolesInit userRolesInit = new UserRolesInit();
+            List<IdentityUserRole<int>> adminUserRoles = userRolesInit.GetRolesForAdmin();
+            List<IdentityUserRole<int>> managerUserRoles = userRolesInit.GetRolesForManager();
+            modelBuilder.Entity<IdentityUserRole<int>>().HasData(adminUserRoles);
+            modelBuilder.Entity<IdentityUserRole<int>>().HasData(managerUserRoles);
+
+
             var bankInit = new BankInit();
             modelBuilder.Entity<Bank>().HasData(bankInit.GenerateBanks3());
             var accountInit = new AccountInit();
             modelBuilder.Entity<Account>().HasData(accountInit.GenerateAccountsFor3Users());
             var cardInit = new CardInit();
-            modelBuilder.Entity<Card>().HasData(cardInit.GenerateCards3());
-
-            // roles init
-            
+            modelBuilder.Entity<Card>().HasData(cardInit.GenerateCards3());       
         }
     }
 }
