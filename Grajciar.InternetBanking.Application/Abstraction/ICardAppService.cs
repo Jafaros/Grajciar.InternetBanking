@@ -1,15 +1,15 @@
-﻿
-
-using Grajciar.InternetBanking.Domain.Entities;
+﻿using Grajciar.InternetBanking.Application.DTO;
+using Grajciar.InternetBanking.Application.DTO.Card;
+using Grajciar.InternetBanking.Application.DTO.Transaction;
 
 namespace Grajciar.InternetBanking.Application.Abstraction
 {
     public interface ICardAppService
     {
-        IList<Card> GetByAccount(int accountId);
-        Card? Get(int id);
-        void CreateForAccount(int accountId, Card card);
-        bool InitiateCardPayment(int cardId, Transaction transaction);
+        IList<CardDTO> GetByAccount(int accountId);
+        CardDTO? Get(int id);
+        int CreateForAccount(int accountId, CardCreateDTO cardDto);
+        bool InitiateCardPayment(int cardId, TransactionCreateDTO transaction);
         bool Delete(int id);
         bool Block(int id);
         bool Unblock(int id);

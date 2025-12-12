@@ -22,13 +22,17 @@ namespace Grajciar.InternetBanking.Domain.Entities
         public string VariableSymbol { get; set; }
 
         // Transaction details
+        public string Description { get; set; }
         public decimal Amount { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; }
         public TransactionType TransactionType { get; set; }
         public TransactionStatus Status { get; set; }
 
-        // Relationship
-        public int AccountId { get; set; }
-        public Account Account { get; set; }
+        // Relationships
+        public int? FromAccountId { get; set; }
+        public Account? FromAccount { get; set; }
+
+        public int? ToAccountId { get; set; }
+        public Account? ToAccount { get; set; }
     }
 }

@@ -1,11 +1,11 @@
-﻿using Grajciar.InternetBanking.Domain.Entities;
+﻿using Grajciar.InternetBanking.Application.DTO.Transaction;
 
 namespace Grajciar.InternetBanking.Application.Abstraction
 {
     public interface ITransactionAppService
     {
-        IList<Transaction> GetByAccount(int accountId);
-        Transaction? Get(int id);
-        void Create(Transaction transaction);
+        IList<TransactionDTO> GetByAccount(int accountId);
+        TransactionDTO? Get(int id);
+        void Create(TransactionCreateDTO transaction);
     }
 }

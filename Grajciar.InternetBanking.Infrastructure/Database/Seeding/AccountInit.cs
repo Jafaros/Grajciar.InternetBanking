@@ -19,7 +19,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
                 BankId = 1,
                 CreatedAt = DateTime.UtcNow,
                 Balance = 1000,
-                Type = Domain.Enums.BankAccountType.PERSONAL,
+                TypeId = 1,
             };
 
             Account account2 = new Account()
@@ -30,7 +30,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
                 BankId = 2,
                 CreatedAt = DateTime.UtcNow,
                 Balance = 500,
-                Type = Domain.Enums.BankAccountType.STUDENT,
+                TypeId = 4,
             };
 
             Account account3 = new Account()
@@ -41,7 +41,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
                 BankId = 3,
                 CreatedAt = DateTime.UtcNow,
                 Balance = 2000,
-                Type = Domain.Enums.BankAccountType.BUSINESS,
+                TypeId = 3,
             };
 
             accounts.AddRange(account1, account2, account3);

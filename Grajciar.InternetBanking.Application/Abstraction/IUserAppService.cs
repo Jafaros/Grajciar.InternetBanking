@@ -1,13 +1,13 @@
-﻿using Grajciar.InternetBanking.Infrastructure.Identity;
+﻿using Grajciar.InternetBanking.Application.DTO.User;
+using Grajciar.InternetBanking.Infrastructure.Identity;
 
 namespace Grajciar.InternetBanking.Application.Abstraction
 {
     public interface IUserAppService
     {
-        IList<User> Select();
-        User? Get(int id);
-        void Create(User user);
-        bool Update(int id, User user);
+        IList<UserDTO> Select();
+        UserDTO? Get(int id);
+        bool Update(int id, UserUpdateDTO dto);
         bool Delete(int id);
     }
 }

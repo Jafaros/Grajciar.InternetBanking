@@ -1,11 +1,5 @@
 ﻿using Grajciar.InternetBanking.Domain.Entities;
-using Grajciar.InternetBanking.Domain.Enums;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Grajciar.InternetBanking.Domain.Interfaces
 {
@@ -22,8 +16,6 @@ namespace Grajciar.InternetBanking.Domain.Interfaces
         public DateTime DateOfBirth { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
-
-        public UserType UserType { get; set; }
 
         // Relationships
         public ICollection<Account> Accounts { get; set; }

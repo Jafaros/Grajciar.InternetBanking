@@ -1,44 +1,75 @@
 ﻿using Grajciar.InternetBanking.Application.Abstraction;
+using Grajciar.InternetBanking.Application.DTO.Bank;
 using Grajciar.InternetBanking.Domain.Entities;
 using Grajciar.InternetBanking.Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace Grajciar.InternetBanking.Application.Implementation
 {
     public class BankAppService : IBankAppService
     {
         InternetBankingDbContext _dbContext;
-        public BankAppService(InternetBankingDbContext dbContext) { 
+
+        public BankAppService(InternetBankingDbContext dbContext)
+        {
             _dbContext = dbContext;
         }
 
-        public void Create(Bank bank)
+        public void Create(BankCreateDTO bankDto)
         {
-            _dbContext.Banks.Add(bank);
+            var entity = MapToEntity(bankDto);
+
+            _dbContext.Banks.Add(entity);
             _dbContext.SaveChanges();
         }
 
-        public Bank? Get(int id)
+        public BankDTO? Get(int id)
         {
-            return _dbContext.Banks.FirstOrDefault(b => b.Id == id);
+            var bank = _dbContext.Banks.FirstOrDefault(b => b.Id == id);
+            return bank != null ? MapToDTO(bank) : null;
         }
 
-        public IList<Bank> Select()
+        public IList<BankDTO> Select()
         {
-            return _dbContext.Banks.ToList();
+            return _dbContext.Banks
+                .Select(b => MapToDTO(b))
+                .ToList();
         }
 
-        public bool Update(int id, Bank bank)
+        public bool Update(int id, BankUpdateDTO bankDto)
         {
-            bool updated = false;
-            var bank_to_update = _dbContext.Banks.FirstOrDefault(b => b.Id == id);
+            var existing = _dbContext.Banks.FirstOrDefault(b => b.Id == id);
 
-            if (bank_to_update != null) {
-                _dbContext.Banks.Update(bank);
-                _dbContext.SaveChanges();
-                updated = true;
-            }
+            if (existing == null)
+                return false;
 
-            return updated;
+            existing.Name = bankDto.Name;
+            existing.SwiftCode = bankDto.SwiftCode;
+            existing.Address = bankDto.Address;
+
+            _dbContext.SaveChanges();
+            return true;
+        }
+
+        private BankDTO MapToDTO(Bank bank)
+        {
+            return new BankDTO
+            {
+                Id = bank.Id,
+                Name = bank.Name,
+                SwiftCode = bank.SwiftCode,
+                Address = bank.Address
+            };
+        }
+
+        private Bank MapToEntity(BankCreateDTO dto)
+        {
+            return new Bank
+            {
+                Name = dto.Name,
+                SwiftCode = dto.SwiftCode,
+                Address = dto.Address
+            };
         }
     }
 }

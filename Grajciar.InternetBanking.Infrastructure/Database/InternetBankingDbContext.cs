@@ -58,12 +58,27 @@ namespace Grajciar.InternetBanking.Infrastructure.Database
             var bankInit = new BankInit();
             modelBuilder.Entity<Bank>().HasData(bankInit.GenerateBanks3());
 
+            var bankAccountTypeInit = new BankAccountTypeInit();
+            modelBuilder.Entity<BankAccountType>().HasData(bankAccountTypeInit.GenerateDefaultTypes());
+
             modelBuilder.Entity<Account>().HasOne<User>(e => e.User as User).WithMany(u => u.Accounts);
             var accountInit = new AccountInit();
             modelBuilder.Entity<Account>().HasData(accountInit.GenerateAccountsFor3Users());
 
             var cardInit = new CardInit();
             modelBuilder.Entity<Card>().HasData(cardInit.GenerateCards3());
+
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.FromAccount)
+                .WithMany(a => a.OutgoingTransactions)
+                .HasForeignKey(t => t.FromAccountId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.ToAccount)
+                .WithMany(a => a.IncomingTransactions)
+                .HasForeignKey(t => t.ToAccountId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

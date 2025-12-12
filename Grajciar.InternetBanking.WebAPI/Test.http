@@ -41,3 +41,23 @@ Content-Type: application/json
 {
     "balance": "3000"
 }
+
+### Registration
+POST http://localhost:5055/security/account/register
+Content-Type: application/json
+
+{
+    "email": "petr.grajciar@gmail.com",
+    "firstname": "Petr",
+    "lastname": "Grajciar",
+    "password": "12345"
+}
+
+### Login
+POST http://localhost:5055/security/account/login
+Content-Type: application/json
+
+{
+    "email": "petr.grajciar@gmail.com",
+    "password": "12345"
+}

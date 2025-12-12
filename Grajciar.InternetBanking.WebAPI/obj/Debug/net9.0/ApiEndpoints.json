@@ -1,20 +1,15 @@
 [
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.AccountController",
-    "Method": "Create",
-    "RelativePath": "Admin/Account/Create/{userId}",
-    "HttpMethod": "POST",
+    "Method": "Get",
+    "RelativePath": "Admin/Account/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
+        "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "account",
-        "Type": "Grajciar.InternetBanking.Domain.Entities.Account",
         "IsRequired": true
       }
     ],
@@ -23,7 +18,7 @@
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.AccountController",
     "Method": "Delete",
-    "RelativePath": "Admin/Account/Delete/{id}",
+    "RelativePath": "Admin/Account/Accounts/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -38,15 +33,20 @@
   },
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.AccountController",
-    "Method": "Get",
-    "RelativePath": "Admin/Account/Get/{id}",
-    "HttpMethod": "GET",
+    "Method": "Update",
+    "RelativePath": "Admin/Account/User/Accounts/{id}",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "account",
+        "Type": "Grajciar.InternetBanking.Application.DTO.Account.AccountUpdateDTO",
         "IsRequired": true
       }
     ],
@@ -55,7 +55,7 @@
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.AccountController",
     "Method": "SelectByUser",
-    "RelativePath": "Admin/Account/SelectByUser/{userId}",
+    "RelativePath": "Admin/Account/Users/{userId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -70,52 +70,20 @@
   },
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.AccountController",
-    "Method": "Update",
-    "RelativePath": "Admin/Account/Update/{id}",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "account",
-        "Type": "Grajciar.InternetBanking.Domain.Entities.Account",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.BankController",
     "Method": "Create",
-    "RelativePath": "Admin/Bank/Create",
+    "RelativePath": "Admin/Account/Users/{userId}/Account",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "bank",
-        "Type": "Grajciar.InternetBanking.Domain.Entities.Bank",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.BankController",
-    "Method": "Get",
-    "RelativePath": "Admin/Bank/Get/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
+        "Name": "userId",
         "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "account",
+        "Type": "Grajciar.InternetBanking.Application.DTO.Account.AccountCreateDTO",
         "IsRequired": true
       }
     ],
@@ -124,7 +92,7 @@
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.BankController",
     "Method": "Index",
-    "RelativePath": "Admin/Bank/Index",
+    "RelativePath": "Admin/Bank",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -133,8 +101,40 @@
   },
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.BankController",
+    "Method": "Create",
+    "RelativePath": "Admin/Bank",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bank",
+        "Type": "Grajciar.InternetBanking.Application.DTO.Bank.BankCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.BankController",
+    "Method": "Get",
+    "RelativePath": "Admin/Bank/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.BankController",
     "Method": "Update",
-    "RelativePath": "Admin/Bank/Update/{id}",
+    "RelativePath": "Admin/Bank/{id}",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -146,7 +146,7 @@
       },
       {
         "Name": "bank",
-        "Type": "Grajciar.InternetBanking.Domain.Entities.Bank",
+        "Type": "Grajciar.InternetBanking.Application.DTO.Bank.BankUpdateDTO",
         "IsRequired": true
       }
     ],
@@ -155,7 +155,7 @@
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.CardController",
     "Method": "AccountCards",
-    "RelativePath": "Admin/Card/AccountCards/{accountId}",
+    "RelativePath": "Admin/Card/Accounts/{accountId}/Cards",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -170,8 +170,61 @@
   },
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.CardController",
+    "Method": "Create",
+    "RelativePath": "Admin/Card/Accounts/{accountId}/Cards",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "card",
+        "Type": "Grajciar.InternetBanking.Application.DTO.Card.CardCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.CardController",
+    "Method": "Get",
+    "RelativePath": "Admin/Card/Cards/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.CardController",
+    "Method": "Delete",
+    "RelativePath": "Admin/Card/Cards/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.CardController",
     "Method": "Block",
-    "RelativePath": "Admin/Card/Block/{id}",
+    "RelativePath": "Admin/Card/Cards/{id}/Block",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -186,61 +239,8 @@
   },
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.CardController",
-    "Method": "Create",
-    "RelativePath": "Admin/Card/Create/{accountId}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "accountId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "card",
-        "Type": "Grajciar.InternetBanking.Domain.Entities.Card",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.CardController",
-    "Method": "Delete",
-    "RelativePath": "Admin/Card/Delete/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.CardController",
-    "Method": "Get",
-    "RelativePath": "Admin/Card/Get/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.CardController",
     "Method": "Unblock",
-    "RelativePath": "Admin/Card/Unblock/{id}",
+    "RelativePath": "Admin/Card/Cards/{id}/Unblock",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -256,7 +256,7 @@
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.HomeController",
     "Method": "Index",
-    "RelativePath": "Admin/Home/Index",
+    "RelativePath": "Admin/Home",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -265,15 +265,46 @@
   },
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.UserController",
-    "Method": "Create",
-    "RelativePath": "Admin/User/Create",
-    "HttpMethod": "POST",
+    "Method": "Index",
+    "RelativePath": "Admin/User",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.UserController",
+    "Method": "Get",
+    "RelativePath": "Admin/User/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.UserController",
+    "Method": "Update",
+    "RelativePath": "Admin/User/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
         "Name": "user",
-        "Type": "Grajciar.InternetBanking.Domain.Entities.User",
+        "Type": "Grajciar.InternetBanking.Application.DTO.User.UserUpdateDTO",
         "IsRequired": true
       }
     ],
@@ -282,7 +313,7 @@
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.UserController",
     "Method": "Delete",
-    "RelativePath": "Admin/User/Delete/{id}",
+    "RelativePath": "Admin/User/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -296,47 +327,32 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.UserController",
-    "Method": "Get",
-    "RelativePath": "Admin/User/Get/{id}",
-    "HttpMethod": "GET",
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Security.AccountController",
+    "Method": "Login",
+    "RelativePath": "Security/Account/login",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "dto",
+        "Type": "Grajciar.InternetBanking.Application.DTO.Security.LoginDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.UserController",
-    "Method": "Index",
-    "RelativePath": "Admin/User/Index",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.UserController",
-    "Method": "Update",
-    "RelativePath": "Admin/User/Update/{id}",
-    "HttpMethod": "PATCH",
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Security.AccountController",
+    "Method": "Register",
+    "RelativePath": "Security/Account/register",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "user",
-        "Type": "Grajciar.InternetBanking.Domain.Entities.User",
+        "Name": "dto",
+        "Type": "Grajciar.InternetBanking.Application.DTO.Security.RegisterDTO",
         "IsRequired": true
       }
     ],

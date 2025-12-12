@@ -1,13 +1,14 @@
 ﻿using Grajciar.InternetBanking.Application.Abstraction;
-using Grajciar.InternetBanking.Domain.Entities;
+using Grajciar.InternetBanking.Application.DTO;
+using Grajciar.InternetBanking.Application.DTO.Card;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("[area]/[controller]/[action]")]
+    [Route("[area]/[controller]")]
     [ApiController]
-    public class CardController : ControllerBase
+    public class CardController : AdminBaseController
     {
         ICardAppService _cardAppService;
 
@@ -16,19 +17,19 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
             _cardAppService = cardAppService;
         }
 
-        [HttpGet("{accountId}")]
+        [HttpGet("Accounts/{accountId}/Cards")]
         public IActionResult AccountCards(int accountId) {
-            IList<Card> cards = _cardAppService.GetByAccount(accountId);
+            IList<CardDTO> cards = _cardAppService.GetByAccount(accountId);
             return Ok(cards);
         }
 
-        [HttpPost("{accountId}")]
-        public IActionResult Create(int accountId, Card card) {
+        [HttpPost("Accounts/{accountId}/Cards")]
+        public IActionResult Create(int accountId, CardCreateDTO card) {
             _cardAppService.CreateForAccount(accountId, card);
             return Ok();
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("Cards/{id}")]
         public IActionResult Get(int id) {
             var card = _cardAppService.Get(id);
 
@@ -41,7 +42,7 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Cards/{id}")]
         public IActionResult Delete(int id) { 
             bool succes = _cardAppService.Delete(id);
 
@@ -54,7 +55,7 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("Cards/{id}/Block")]
         public IActionResult Block(int id) { 
             bool success = _cardAppService.Block(id);
 
@@ -67,7 +68,7 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("Cards/{id}/Unblock")]
         public IActionResult Unblock(int id)
         {
             bool success = _cardAppService.Unblock(id);

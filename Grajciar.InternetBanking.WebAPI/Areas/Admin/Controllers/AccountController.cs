@@ -1,14 +1,13 @@
 ﻿using Grajciar.InternetBanking.Application.Abstraction;
-using Grajciar.InternetBanking.Domain.Entities;
+using Grajciar.InternetBanking.Application.DTO.Account;
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.Design;
 
 namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("[area]/[controller]/[action]")]
+    [Route("[area]/[controller]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AccountController : AdminBaseController
     {
         IAccountAppService _accountAppService;
 
@@ -19,24 +18,24 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
 
         [HttpGet("{id}")]
         public IActionResult Get(int id) {
-            var user = _accountAppService.Get(id);
+            var account = _accountAppService.Get(id);
 
-            if (user == null)
+            if (account == null)
             {
                 return NotFound();
             }
             else {
-                return Ok(user);
+                return Ok(account);
             }
         }
 
-        [HttpGet("{userId}")]
+        [HttpGet("Users/{userId}")]
         public IActionResult SelectByUser(int userId) { 
             return Ok(_accountAppService.SelectByUser(userId));
         }
 
-        [HttpPost("{userId}")]
-        public IActionResult Create(int userId, [FromBody] Account account) {
+        [HttpPost("Users/{userId}/Account")]
+        public IActionResult Create(int userId, [FromBody] AccountCreateDTO account) {
             if (_accountAppService.CreateForUser(userId, account))
             {
                 return Ok();
@@ -46,8 +45,8 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
             }
         }
 
-        [HttpPatch("{id}")]
-        public IActionResult Update(int id, [FromBody] Account account) {
+        [HttpPatch("User/Accounts/{id}")]
+        public IActionResult Update(int id, [FromBody] AccountUpdateDTO account) {
             if (_accountAppService.Update(id, account))
             {
                 return Ok();
@@ -57,7 +56,7 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Accounts/{id}")]
         public IActionResult Delete(int id) {
             if (_accountAppService.Delete(id)) {
                 return Ok();

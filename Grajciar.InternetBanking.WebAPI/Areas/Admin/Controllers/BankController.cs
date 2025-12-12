@@ -1,13 +1,14 @@
 ﻿using Grajciar.InternetBanking.Application.Abstraction;
+using Grajciar.InternetBanking.Application.DTO.Bank;
 using Grajciar.InternetBanking.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("[area]/[controller]/[action]")]
+    [Route("[area]/[controller]")]
     [ApiController]
-    public class BankController : Controller
+    public class BankController : AdminBaseController
     {
         IBankAppService _bankAppService;
 
@@ -36,13 +37,13 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Bank bank) { 
+        public IActionResult Create([FromBody] BankCreateDTO bank) { 
             _bankAppService.Create(bank);
             return Ok(bank);
         }
 
         [HttpPatch("{id}")]
-        public IActionResult Update(int id, [FromBody] Bank bank) { 
+        public IActionResult Update(int id, [FromBody] BankUpdateDTO bank) { 
             bool success = _bankAppService.Update(id, bank);
 
             if (success)

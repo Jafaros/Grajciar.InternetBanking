@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("[area]/[controller]/[action]")]
+    [Route("[area]/[controller]")]
     [ApiController]
-    public class HomeController : Controller
+    public class HomeController : AdminBaseController
     {
         [HttpGet]
         public IActionResult Index()

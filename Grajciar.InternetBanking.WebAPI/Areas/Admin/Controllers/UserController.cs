@@ -1,13 +1,13 @@
 ﻿using Grajciar.InternetBanking.Application.Abstraction;
-using Grajciar.InternetBanking.Infrastructure.Identity;
+using Grajciar.InternetBanking.Application.DTO.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("[area]/[controller]/[action]")]
+    [Route("[area]/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : AdminBaseController
     {
         IUserAppService _userAppService;
 
@@ -19,13 +19,13 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            IList<User> users = _userAppService.Select();
+            IList<UserDTO> users = _userAppService.Select();
             return Ok(users);
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id) { 
-            User? user = _userAppService.Get(id);
+        public IActionResult Get(int id) {
+            UserDTO? user = _userAppService.Get(id);
 
             if (user == null)
             {
@@ -36,14 +36,8 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult Create([FromBody] User user) {
-            _userAppService.Create(user);
-            return Ok("User has been created");
-        }
-
         [HttpPatch("{id}")]
-        public IActionResult Update(int id, [FromBody] User user) {
+        public IActionResult Update(int id, [FromBody] UserUpdateDTO user) {
             bool updated = _userAppService.Update(id, user);
 
             if (updated)

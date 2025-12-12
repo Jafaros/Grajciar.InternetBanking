@@ -1,12 +1,12 @@
-﻿using Grajciar.InternetBanking.Domain.Entities;
+﻿using Grajciar.InternetBanking.Application.DTO.Bank;
 
 namespace Grajciar.InternetBanking.Application.Abstraction
 {
     public interface IBankAppService
     {
-        IList<Bank> Select();
-        Bank? Get(int id);
-        void Create(Bank bank);
-        bool Update(int id, Bank bank);
+        IList<BankDTO> Select();
+        BankDTO? Get(int id);
+        void Create(BankCreateDTO bank);
+        bool Update(int id, BankUpdateDTO bank);
     }
 }

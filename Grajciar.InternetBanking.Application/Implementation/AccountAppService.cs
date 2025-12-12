@@ -1,4 +1,5 @@
 ﻿using Grajciar.InternetBanking.Application.Abstraction;
+using Grajciar.InternetBanking.Application.DTO.Account;
 using Grajciar.InternetBanking.Domain.Entities;
 using Grajciar.InternetBanking.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
@@ -8,69 +9,93 @@ namespace Grajciar.InternetBanking.Application.Implementation
     public class AccountAppService : IAccountAppService
     {
         InternetBankingDbContext _dbContext;
+
         public AccountAppService(InternetBankingDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public bool CreateForUser(int userId, Account account)
+        public IList<AccountDTO> Select()
         {
-            bool created = false;
+            return _dbContext.Accounts
+                .Select(a => MapToDTO(a))
+                .ToList();
+        }
 
+        public IList<AccountDTO> SelectByUser(int userId)
+        {
+            return _dbContext.Accounts
+                .Where(a => a.UserId == userId)
+                .Select(a => MapToDTO(a))
+                .ToList();
+        }
+
+        public AccountDTO? Get(int id)
+        {
+            var account = _dbContext.Accounts
+                .FirstOrDefault(a => a.Id == id);
+
+            return account == null ? null : MapToDTO(account);
+        }
+
+        public bool CreateForUser(int userId, AccountCreateDTO dto)
+        {
             var user = _dbContext.Users.FirstOrDefault(u => u.Id == userId);
+            if (user == null)
+                return false;
 
-            if (user != null) {
-                account.UserId = userId;
-                _dbContext.Accounts.Add(account);
-                _dbContext.SaveChanges();
-                created = true;
-            }
+            var account = new Account
+            {
+                Balance = dto.Balance,
+                AccountNumber = dto.AccountNumber,
+                UserId = userId,
+                TypeId = dto.TypeId,
+                BankId = dto.BankId,
+                CreatedAt = DateTime.UtcNow
+            };
 
-            return created;
+            _dbContext.Accounts.Add(account);
+            _dbContext.SaveChanges();
+            return true;
+        }
+
+        public bool Update(int id, AccountUpdateDTO dto)
+        {
+            var account = _dbContext.Accounts.FirstOrDefault(a => a.Id == id);
+            if (account == null)
+                return false;
+
+            account.AccountNumber = dto.AccountNumber;
+            account.TypeId = dto.TypeId;
+            account.BankId = dto.BankId;
+
+            _dbContext.SaveChanges();
+            return true;
         }
 
         public bool Delete(int id)
         {
-            bool deleted = false;
-
             var account = _dbContext.Accounts.FirstOrDefault(a => a.Id == id);
+            if (account == null)
+                return false;
 
-            if (account != null) { 
-                _dbContext.Accounts.Remove(account);
-                _dbContext.SaveChanges();
-                deleted = true;
-            }
-
-            return deleted;
+            _dbContext.Accounts.Remove(account);
+            _dbContext.SaveChanges();
+            return true;
         }
 
-        public Account? Get(int id)
+        private AccountDTO MapToDTO(Account a)
         {
-            return _dbContext.Accounts.Include(a => a.Transactions).FirstOrDefault(a => a.Id == id);
-        }
-
-        public IList<Account> Select()
-        {
-            return _dbContext.Accounts.ToList();
-        }
-
-        public IList<Account> SelectByUser(int userId)
-        {
-            return _dbContext.Accounts.Where(a => a.UserId == userId).ToList();
-        }
-
-        public bool Update(int id, Account account)
-        {
-            bool updated = false;
-            var acc = _dbContext.Accounts.FirstOrDefault(a => a.Id == id);
-
-            if (acc != null) { 
-                _dbContext.Accounts.Update(acc);
-                _dbContext.SaveChanges();
-                updated = true;
-            }
-
-            return updated;
+            return new AccountDTO
+            {
+                Id = a.Id,
+                Balance = a.Balance,
+                AccountNumber = a.AccountNumber,
+                CreatedAt = a.CreatedAt,
+                UserId = a.UserId,
+                TypeId = a.TypeId,
+                BankId = a.BankId
+            };
         }
     }
 }

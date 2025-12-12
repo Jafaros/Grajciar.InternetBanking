@@ -18,7 +18,7 @@ namespace Grajciar.InternetBanking.Domain.Entities
         public CardType Type { get; set; }
         public string CardHolderName { get; set; }
         public bool IsBlocked { get; set; } = false;
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; }
 
         // Relationships
         public int AccountId { get; set; }
