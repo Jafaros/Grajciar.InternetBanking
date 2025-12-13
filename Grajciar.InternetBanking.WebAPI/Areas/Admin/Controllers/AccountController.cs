@@ -9,7 +9,7 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
     [ApiController]
     public class AccountController : AdminBaseController
     {
-        IAccountAppService _accountAppService;
+        private readonly IAccountAppService _accountAppService;
 
         public AccountController(IAccountAppService accountAppService)
         {

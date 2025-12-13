@@ -2,10 +2,14 @@ using Grajciar.InternetBanking.Application.Abstraction;
 using Grajciar.InternetBanking.Application.Implementation;
 using Grajciar.InternetBanking.Infrastructure.Database;
 using Grajciar.InternetBanking.Infrastructure.Identity;
+using Grajciar.InternetBanking.Infrastructure.Security;
+using Grajciar.InternetBanking.WebAPI.Policies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 
 namespace Grajciar.InternetBanking.WebAPI
@@ -44,8 +48,26 @@ namespace Grajciar.InternetBanking.WebAPI
             })
             .AddJwtBearer(options =>
             {
+                options.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        context.Token = context.Request.Cookies["access_token"];
+                        return Task.CompletedTask;
+                    },
+
+                    OnAuthenticationFailed = context =>
+                    {
+                        Console.WriteLine("JWT AUTH FAILED:");
+                        Console.WriteLine(context.Exception.ToString());
+                        return Task.CompletedTask;
+                    }
+                };
+
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
+                    RoleClaimType = ClaimTypes.Role,
+                    NameClaimType = ClaimTypes.NameIdentifier,
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateLifetime = true,
@@ -55,7 +77,9 @@ namespace Grajciar.InternetBanking.WebAPI
                     ValidAudience = jwtSettings["Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(
                         Encoding.UTF8.GetBytes(jwtSettings["Key"])
-                    )
+                    ),
+
+                    ClockSkew = TimeSpan.Zero
                 };
             });
 
@@ -65,7 +89,15 @@ namespace Grajciar.InternetBanking.WebAPI
             builder.Services.AddScoped<ICardAppService, CardAppService>();
             builder.Services.AddScoped<ITransactionAppService, TransactionAppService>();
             builder.Services.AddScoped<ISecurityService, SecurityAppService>();
-            builder.Services.AddSingleton<JWTService>();
+            builder.Services.AddScoped<IJWTService, JWTService>();
+
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Self", policy =>
+                    policy.Requirements.Add(new SelfRequirement()));
+            });
+
+            builder.Services.AddScoped<IAuthorizationHandler, SelfHandler>();
 
             builder.Services.AddControllers()
                 .AddJsonOptions(options =>
@@ -74,9 +106,23 @@ namespace Grajciar.InternetBanking.WebAPI
                         System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
                 });
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("Frontend", policy =>
+                {
+                    policy
+                        .WithOrigins("http://localhost:5173")
+                        .AllowCredentials()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
             var app = builder.Build();
 
             app.UseHttpsRedirection();
+
+            app.UseCors("Frontend");
 
             app.UseAuthentication();
             app.UseAuthorization();

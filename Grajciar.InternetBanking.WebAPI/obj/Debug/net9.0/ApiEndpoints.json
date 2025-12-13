@@ -344,6 +344,16 @@
   },
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Security.AccountController",
+    "Method": "Logout",
+    "RelativePath": "Security/Account/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Security.AccountController",
     "Method": "Register",
     "RelativePath": "Security/Account/register",
     "HttpMethod": "POST",
@@ -353,6 +363,27 @@
       {
         "Name": "dto",
         "Type": "Grajciar.InternetBanking.Application.DTO.Security.RegisterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Users.Controllers.UserController",
+    "Method": "Update",
+    "RelativePath": "Users/User/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "user",
+        "Type": "Grajciar.InternetBanking.Application.DTO.User.UserUpdateDTO",
         "IsRequired": true
       }
     ],

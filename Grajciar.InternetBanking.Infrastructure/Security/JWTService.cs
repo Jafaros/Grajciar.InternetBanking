@@ -1,4 +1,5 @@
 ﻿using Grajciar.InternetBanking.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -9,21 +10,23 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grajciar.InternetBanking.Application.Implementation
+namespace Grajciar.InternetBanking.Infrastructure.Security
 {
-    public class JWTService
+    public class JWTService : IJWTService
     {
-        IConfiguration _config;
-        IConfigurationSection _jwtSettings;
+        private readonly IConfiguration _config;
+        private readonly IConfigurationSection _jwtSettings;
+        private readonly UserManager<User> _userManager;
 
-        public JWTService(IConfiguration config) {
+        public JWTService(IConfiguration config, UserManager<User> userManager) {
             _config = config;
             _jwtSettings = _config.GetSection("JWTSettings");
+            _userManager = userManager;
         }
 
-        public string CreateToken(User user) {
+        public async Task<string> CreateToken(User user) {
             var signingCredentials = GetSigningCredentials();
-            var claims = GetClaims(user);
+            var claims = await GetClaimsAsync(user);
             var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
 
             return new JwtSecurityTokenHandler().WriteToken(tokenOptions);
@@ -36,10 +39,17 @@ namespace Grajciar.InternetBanking.Application.Implementation
             return new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);
         }
 
-        private List<Claim> GetClaims(User user) {
+        private async Task<List<Claim>> GetClaimsAsync(User user) {
             var claims = new List<Claim>() {
-                new Claim(ClaimTypes.Name, user.UserName)
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Name, user.UserName),
             };
+
+            var roles = await _userManager.GetRolesAsync(user);
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
             return claims;
         }
@@ -49,7 +59,7 @@ namespace Grajciar.InternetBanking.Application.Implementation
                 issuer: _jwtSettings["Issuer"],
                 audience: _jwtSettings["Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(Convert.ToDouble(_jwtSettings["ExpiresInMinutes"])),
+                expires: DateTime.UtcNow.AddMinutes(Convert.ToDouble(_jwtSettings["ExpiresInMinutes"])),
                 signingCredentials: signingCredentials
                 );
 

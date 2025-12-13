@@ -3,6 +3,7 @@ using Grajciar.InternetBanking.Application.DTO.Security;
 using Grajciar.InternetBanking.Application.DTO.User;
 using Grajciar.InternetBanking.Infrastructure.Identity;
 using Grajciar.InternetBanking.Infrastructure.Identity.Enums;
+using Grajciar.InternetBanking.Infrastructure.Security;
 using Microsoft.AspNetCore.Identity;
 using System.Data;
 
@@ -10,11 +11,11 @@ namespace Grajciar.InternetBanking.Application.Implementation
 {
     public class SecurityAppService : ISecurityService
     {
-        UserManager<User> _userManager;
-        RoleManager<Role> _roleManager;
-        JWTService _jwtService;
+        private readonly UserManager<User> _userManager;
+        private readonly RoleManager<Role> _roleManager;
+        private readonly IJWTService _jwtService;
 
-        public SecurityAppService(UserManager<User> userManager, RoleManager<Role> roleManager, JWTService jwtService)
+        public SecurityAppService(UserManager<User> userManager, RoleManager<Role> roleManager, IJWTService jwtService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -29,11 +30,11 @@ namespace Grajciar.InternetBanking.Application.Implementation
             if (user == null || !await _userManager.CheckPasswordAsync(user, dto.Password))
             {
                 response.Success = false;
-                response.ErrorMessage = "Přístup zamítnut";
+                response.ErrorMessage = "Neplatné přihlašovací údaje";
                 return response;
             }
 
-            var token = _jwtService.CreateToken(user);
+            var token = await _jwtService.CreateToken(user);
             response.Token = token;
             response.User = await MapToUserDTO(user);
             return response;

@@ -1,5 +1,6 @@
 ﻿using Grajciar.InternetBanking.Application.Abstraction;
 using Grajciar.InternetBanking.Application.DTO.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers

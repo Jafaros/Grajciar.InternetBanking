@@ -1,7 +1,8 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
 
-### Create a new user via /admin/user/create
-POST http://localhost:5055/admin/user/create
+### Update user via /users/user/7
+PATCH http://localhost:5055/users/user/7
+Cookie: access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjciLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoicGV0cmdyYWpjaWFyIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQ3VzdG9tZXIiLCJleHAiOjE3NjU2MzMxMjIsImlzcyI6IkdyYWpjaWFyLkludGVybmV0QmFua2luZyIsImF1ZCI6IkdyYWpjaWFyLkludGVybmV0QmFua2luZy5DbGllbnQifQ.12ekqAMERPLP2S-HQgu2IRYSWsMhYdZLa3HWI0fqgvY
 Content-Type: application/json
 
 {
@@ -9,9 +10,7 @@ Content-Type: application/json
   "firstname": "Test",
   "lastname": "Vyšel",
   "email": "test@test.cz",
-  "tel": "+420987654321",
-  "dateofbirth": "1999-01-01T00:00:00",
-  "passwordHash": "hashedpassword"
+  "tel": "+420987654321"
 }
 
 ### Get all users /admin/user/index
@@ -20,7 +19,6 @@ GET http://localhost:5055/admin/user/index
 
 ### Get all banks /admin/bank/index
 GET http://localhost:5055/admin/bank/index
-
 
 ### Get user with ID 1 /admin/user/get/1
 GET http://localhost:5055/admin/user/get/1
@@ -61,3 +59,7 @@ Content-Type: application/json
     "email": "petr.grajciar@gmail.com",
     "password": "12345"
 }
+
+### Logout
+POST http://localhost:5055/security/account/logout
+Content-Type: application/json

@@ -44,7 +44,27 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Security
                 return Unauthorized(response);
             }
 
+            Response.Cookies.Append(
+                "access_token",
+                response.Token!,
+                new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = false,
+                    SameSite = SameSiteMode.Strict,
+                    Expires = DateTimeOffset.UtcNow.AddMinutes(60)
+                });
+
+            response.Token = null;
+
             return Ok(response);
+        }
+
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("access_token");
+            return Ok();
         }
     }
 }

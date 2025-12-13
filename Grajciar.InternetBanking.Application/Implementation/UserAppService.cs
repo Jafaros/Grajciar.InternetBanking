@@ -63,6 +63,7 @@ namespace Grajciar.InternetBanking.Application.Implementation
             if (user == null)
                 return false;
 
+            user.UserName = dto.UserName;
             user.FirstName = dto.FirstName;
             user.LastName = dto.LastName;
             user.Email = dto.Email;
