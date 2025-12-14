@@ -22,11 +22,6 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Security
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDTO dto)
         {
-            if (dto == null)
-            {
-                return BadRequest();
-            }
-
             var response = await _securityService.Register(dto, Roles.Customer);
             if (!response.Success) {
                 return BadRequest(response);

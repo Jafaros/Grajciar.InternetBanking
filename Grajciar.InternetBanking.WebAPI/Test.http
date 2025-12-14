@@ -13,8 +13,9 @@ Content-Type: application/json
   "tel": "+420987654321"
 }
 
-### Get all users /admin/user/index
-GET http://localhost:5055/admin/user/index
+### Get all users /admin/user
+GET http://localhost:5055/admin/user
+Cookie: access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW4iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiQWRtaW4iLCJNYW5hZ2VyIiwiQ3VzdG9tZXIiXSwiZXhwIjoxNzY1NzMzNjUxLCJpc3MiOiJHcmFqY2lhci5JbnRlcm5ldEJhbmtpbmciLCJhdWQiOiJHcmFqY2lhci5JbnRlcm5ldEJhbmtpbmcuQ2xpZW50In0.TRno7f5UdG0TI78DrhctJ6iAvGP7Lur_YS6jWdpo82Q
 
 
 ### Get all banks /admin/bank/index
@@ -57,6 +58,15 @@ Content-Type: application/json
 
 {
     "email": "petr.grajciar@gmail.com",
+    "password": "12345"
+}
+
+### Login as admin
+POST http://localhost:5055/security/account/login
+Content-Type: application/json
+
+{
+    "email": "admin@admin.cz",
     "password": "12345"
 }
 

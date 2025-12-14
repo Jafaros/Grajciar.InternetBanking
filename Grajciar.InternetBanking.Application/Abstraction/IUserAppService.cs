@@ -5,9 +5,9 @@ namespace Grajciar.InternetBanking.Application.Abstraction
 {
     public interface IUserAppService
     {
-        IList<UserDTO> Select();
-        UserDTO? Get(int id);
-        bool Update(int id, UserUpdateDTO dto);
+        Task<IList<UserDTO>> Select();
+        Task<UserDTO?> Get(int id);
+        Task<UserUpdateResponseDTO> Update(int id, UserUpdateDTO dto);
         bool Delete(int id);
     }
 }

@@ -18,15 +18,15 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            IList<UserDTO> users = _userAppService.Select();
+            IList<UserDTO> users = await _userAppService.Select();
             return Ok(users);
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id) {
-            UserDTO? user = _userAppService.Get(id);
+        public async Task<IActionResult> Get(int id) {
+            UserDTO? user = await _userAppService.Get(id);
 
             if (user == null)
             {
@@ -38,15 +38,15 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
         }
 
         [HttpPatch("{id}")]
-        public IActionResult Update(int id, [FromBody] UserUpdateDTO user) {
-            bool updated = _userAppService.Update(id, user);
+        public async Task<IActionResult> Update(int id, [FromBody] UserUpdateDTO user) {
+            UserUpdateResponseDTO updated = await _userAppService.Update(id, user);
 
-            if (updated)
+            if (updated.Success)
             {
-                return Ok("User updated successfully");
+                return Ok(updated);
             }
             else
-                return NotFound();
+                return NotFound(updated);
         }
 
         [HttpDelete("{id}")]

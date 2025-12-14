@@ -1,10 +1,10 @@
 ﻿using Grajciar.InternetBanking.Application.DTO.Account;
-using Grajciar.InternetBanking.Domain.Entities;
 
 namespace Grajciar.InternetBanking.Application.Abstraction
 {
     public interface IAccountAppService
     {
+        IList<AccountDTO> Select();
         AccountDTO? Get(int id);
         IList<AccountDTO> SelectByUser(int userId);
         bool CreateForUser(int userId, AccountCreateDTO account);

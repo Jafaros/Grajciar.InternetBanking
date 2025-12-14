@@ -48,7 +48,7 @@ namespace Grajciar.InternetBanking.Application.Implementation
             {
                 Email = dto.Email,
                 Tel = dto.Tel,
-                UserName = dto.FirstName.ToLower() + dto.LastName.ToLower(),
+                UserName = dto.UserName,
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
                 DateOfBirth = dto.DateOfBirth,

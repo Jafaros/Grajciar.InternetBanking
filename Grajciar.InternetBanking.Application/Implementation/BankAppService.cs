@@ -51,24 +51,26 @@ namespace Grajciar.InternetBanking.Application.Implementation
             return true;
         }
 
-        private BankDTO MapToDTO(Bank bank)
+        private static BankDTO MapToDTO(Bank bank)
         {
             return new BankDTO
             {
                 Id = bank.Id,
                 Name = bank.Name,
                 SwiftCode = bank.SwiftCode,
-                Address = bank.Address
+                Address = bank.Address,
+                BankCode = bank.BankCode
             };
         }
 
-        private Bank MapToEntity(BankCreateDTO dto)
+        private static Bank MapToEntity(BankCreateDTO dto)
         {
             return new Bank
             {
                 Name = dto.Name,
                 SwiftCode = dto.SwiftCode,
-                Address = dto.Address
+                Address = dto.Address,
+                BankCode = dto.BankCode
             };
         }
     }

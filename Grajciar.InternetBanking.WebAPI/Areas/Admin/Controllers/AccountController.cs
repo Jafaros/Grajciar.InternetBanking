@@ -16,6 +16,14 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
             _accountAppService = accountAppService;
         }
 
+        [HttpGet]
+        public IActionResult Index(int id)
+        {
+            var accounts = _accountAppService.Select();
+            return Ok(accounts);
+        }
+
+
         [HttpGet("{id}")]
         public IActionResult Get(int id) {
             var account = _accountAppService.Get(id);
@@ -45,7 +53,7 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
             }
         }
 
-        [HttpPatch("User/Accounts/{id}")]
+        [HttpPatch("{id}")]
         public IActionResult Update(int id, [FromBody] AccountUpdateDTO account) {
             if (_accountAppService.Update(id, account))
             {

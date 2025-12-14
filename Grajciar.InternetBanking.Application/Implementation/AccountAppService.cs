@@ -2,6 +2,7 @@
 using Grajciar.InternetBanking.Application.DTO.Account;
 using Grajciar.InternetBanking.Domain.Entities;
 using Grajciar.InternetBanking.Infrastructure.Database;
+using Grajciar.InternetBanking.Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Grajciar.InternetBanking.Application.Implementation
@@ -18,7 +19,18 @@ namespace Grajciar.InternetBanking.Application.Implementation
         public IList<AccountDTO> Select()
         {
             return _dbContext.Accounts
-                .Select(a => MapToDTO(a))
+                .Select(a => new AccountDTO
+                {
+                    Id = a.Id,
+                    Balance = a.Balance,
+                    AccountNumber = a.AccountNumber,
+                    CreatedAt = a.CreatedAt,
+                    UserId = a.UserId,
+                    TypeId = a.TypeId,
+                    BankId = a.BankId,
+                    BankCode = a.Bank.BankCode,
+                    Type = a.Type.Name
+                })
                 .ToList();
         }
 
@@ -26,16 +38,39 @@ namespace Grajciar.InternetBanking.Application.Implementation
         {
             return _dbContext.Accounts
                 .Where(a => a.UserId == userId)
-                .Select(a => MapToDTO(a))
+                .Select(a => new AccountDTO
+                {
+                    Id = a.Id,
+                    Balance = a.Balance,
+                    AccountNumber = a.AccountNumber,
+                    CreatedAt = a.CreatedAt,
+                    UserId = a.UserId,
+                    TypeId = a.TypeId,
+                    BankId = a.BankId,
+                    BankCode = a.Bank.BankCode,
+                    Type = a.Type.Name
+                })
                 .ToList();
         }
 
         public AccountDTO? Get(int id)
         {
-            var account = _dbContext.Accounts
-                .FirstOrDefault(a => a.Id == id);
-
-            return account == null ? null : MapToDTO(account);
+            return _dbContext.Accounts
+                .AsNoTracking()
+                .Where(a => a.Id == id)
+                .Select(a => new AccountDTO
+                {
+                    Id = a.Id,
+                    Balance = a.Balance,
+                    AccountNumber = a.AccountNumber,
+                    CreatedAt = a.CreatedAt,
+                    UserId = a.UserId,
+                    TypeId = a.TypeId,
+                    BankId = a.BankId,
+                    BankCode = a.Bank.BankCode,
+                    Type = a.Type.Name
+                })
+                .FirstOrDefault();
         }
 
         public bool CreateForUser(int userId, AccountCreateDTO dto)
@@ -82,20 +117,6 @@ namespace Grajciar.InternetBanking.Application.Implementation
             _dbContext.Accounts.Remove(account);
             _dbContext.SaveChanges();
             return true;
-        }
-
-        private AccountDTO MapToDTO(Account a)
-        {
-            return new AccountDTO
-            {
-                Id = a.Id,
-                Balance = a.Balance,
-                AccountNumber = a.AccountNumber,
-                CreatedAt = a.CreatedAt,
-                UserId = a.UserId,
-                TypeId = a.TypeId,
-                BankId = a.BankId
-            };
         }
     }
 }

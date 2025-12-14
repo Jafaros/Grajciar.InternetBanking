@@ -1,1 +1,1 @@
-export const APP_TITLE = 'Internetové bankovnictví';
+export const APP_TITLE = 'MindBank';

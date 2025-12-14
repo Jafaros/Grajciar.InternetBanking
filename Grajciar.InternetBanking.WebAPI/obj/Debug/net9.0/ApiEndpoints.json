@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.AccountController",
+    "Method": "Index",
+    "RelativePath": "Admin/Account",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.AccountController",
     "Method": "Get",
     "RelativePath": "Admin/Account/{id}",
     "HttpMethod": "GET",
@@ -17,24 +33,8 @@
   },
   {
     "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.AccountController",
-    "Method": "Delete",
-    "RelativePath": "Admin/Account/Accounts/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.AccountController",
     "Method": "Update",
-    "RelativePath": "Admin/Account/User/Accounts/{id}",
+    "RelativePath": "Admin/Account/{id}",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -47,6 +47,22 @@
       {
         "Name": "account",
         "Type": "Grajciar.InternetBanking.Application.DTO.Account.AccountUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers.AccountController",
+    "Method": "Delete",
+    "RelativePath": "Admin/Account/Accounts/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -369,9 +385,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Users.Controllers.UserController",
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Controllers.UserController",
     "Method": "Update",
-    "RelativePath": "Users/User/{id}",
+    "RelativePath": "User/{id}",
     "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
@@ -384,6 +400,22 @@
       {
         "Name": "user",
         "Type": "Grajciar.InternetBanking.Application.DTO.User.UserUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Grajciar.InternetBanking.WebAPI.Areas.Controllers.UserController",
+    "Method": "GetAccounts",
+    "RelativePath": "User/{id}/accounts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

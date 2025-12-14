@@ -10,6 +10,7 @@ namespace Grajciar.InternetBanking.Application.DTO.Bank
     {
         public string Name { get; set; }
         public string SwiftCode { get; set; }
+        public string BankCode { get; set; }
         public string Address { get; set; }
     }
 }

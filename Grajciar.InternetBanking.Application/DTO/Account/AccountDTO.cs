@@ -9,5 +9,7 @@
         public int UserId { get; set; }
         public int TypeId { get; set; }
         public int BankId { get; set; }
+        public string BankCode { get; set; }
+        public string Type { get; set; }
     }
 }

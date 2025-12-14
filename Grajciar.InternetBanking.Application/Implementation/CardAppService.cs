@@ -5,6 +5,7 @@ using Grajciar.InternetBanking.Application.DTO.Transaction;
 using Grajciar.InternetBanking.Domain.Entities;
 using Grajciar.InternetBanking.Domain.Enums;
 using Grajciar.InternetBanking.Infrastructure.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace Grajciar.InternetBanking.Application.Implementation
 {
@@ -42,7 +43,17 @@ namespace Grajciar.InternetBanking.Application.Implementation
         {
             return _dbContext.Cards
                 .Where(c => c.AccountId == accountId)
-                .Select(c => MapToDTO(c))
+                .Select(c => new CardDTO
+                {
+                    Id = c.Id,
+                    CardNumber = c.CardNumber,
+                    SecurityCode = c.SecurityCode,
+                    ExpirationDate = c.ExpirationDate,
+                    IsBlocked = c.IsBlocked,
+                    AccountId = c.AccountId,
+                    TypeId = (int) c.Type,
+                    CardHolderName = c.CardHolderName
+                })
                 .ToList();
         }
 
@@ -111,26 +122,38 @@ namespace Grajciar.InternetBanking.Application.Implementation
             return true;
         }
 
-        private CardDTO MapToDTO(Card card)
+        private static CardDTO MapToDTO(Card card)
         {
             return new CardDTO
             {
                 Id = card.Id,
                 CardNumber = card.CardNumber,
+                SecurityCode = card.SecurityCode,
                 ExpirationDate = card.ExpirationDate,
                 IsBlocked = card.IsBlocked,
-                AccountId = card.AccountId
+                AccountId = card.AccountId,
+                CardHolderName = card.CardHolderName
             };
         }
 
         private Card MapToEntity(CardCreateDTO dto)
         {
+            var user = _dbContext.Users
+                .Include(u => u.Accounts)
+                .FirstOrDefault(u => u.Accounts.Any(a => a.Id == dto.AccountId));
+
+            if (user == null)
+                throw new InvalidOperationException("Account owner not found");
+
             return new Card
             {
+                AccountId = dto.AccountId,
                 CardNumber = dto.CardNumber,
+                SecurityCode = dto.SecurityCode,
                 ExpirationDate = dto.ExpirationDate,
                 IsBlocked = dto.IsBlocked,
-                AccountId = dto.AccountId
+                CardHolderName = user.FullName,
+                CreatedAt = DateTime.UtcNow
             };
         }
 
