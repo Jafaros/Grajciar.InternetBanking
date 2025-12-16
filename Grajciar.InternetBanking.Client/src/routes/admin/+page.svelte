@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Card from '$lib/components/Card.svelte';
-	import type { IAccount } from '$lib/services/account.service.svelte';
-	import { GetAdminState } from '$lib/services/admin.service.svelte';
+	import { GetAdminState, type IAccount } from '$lib/services/admin.service.svelte';
 	import { GetGreeting } from '$lib/services/greeting.service';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
@@ -34,9 +33,7 @@
 			</div>
 		</div>
 
-		<div
-			class="mt-8 grid grid-cols-4 gap-3 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1"
-		>
+		<div class="mt-8 grid grid-cols-3 gap-3 max-lg:grid-cols-2 max-sm:grid-cols-1">
 			<Card bg={'bg-slate-500'} color={'text-white'}>
 				<span class="text-lg uppercase">Celkový počet klientů</span>
 				<div class="text-3xl">{adminState.GetUsers().length.toLocaleString()}</div>

@@ -514,10 +514,10 @@ C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBankin
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\Grajciar.3A5A87AA.Up2Date
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\Grajciar.InternetBanking.WebAPI.dll
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\refint\Grajciar.InternetBanking.WebAPI.dll
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\Grajciar.InternetBanking.WebAPI.pdb
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\Grajciar.InternetBanking.WebAPI.genruntimeconfig.cache
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\ref\Grajciar.InternetBanking.WebAPI.dll
+C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

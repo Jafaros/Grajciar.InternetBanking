@@ -1,5 +1,8 @@
-import { apiFetch } from '$lib/utils/fetch';
+import { goto } from '$app/navigation';
+import { apiFetch, parseAspNetErrors } from '$lib/utils/fetch';
 import { getContext, onMount, setContext } from 'svelte';
+import { resolve } from '$app/paths';
+import { page } from '$app/state';
 
 export interface IUser {
 	id: number;
@@ -71,14 +74,39 @@ class AdminService {
 	constructor() {
 		onMount(async () => {
 			this.TryLoadAdmin();
-			await this.FetchUsers();
-			await this.FetchBanks();
+
+			const path = page.url.pathname;
+
+			if (path.startsWith('/admin')) {
+				if (this.isLoggedIn() && this.admin?.roles.includes('Admin')) {
+					await this.FetchUsers();
+					await this.FetchBanks();
+				} else {
+					await goto(resolve('/login'), { replaceState: true });
+				}
+			}
 		});
 	}
 
+	public isLoggedIn = () => {
+		return !!this.admin;
+	};
+
 	public SetAdmin = (user: IUser) => {
 		this.admin = user;
-		sessionStorage.setItem('admin', JSON.stringify(this.admin));
+		sessionStorage.setItem('user', JSON.stringify(this.admin));
+	};
+
+	private TryLoadAdmin = () => {
+		const userData = sessionStorage.getItem('user');
+
+		if (userData) {
+			this.admin = JSON.parse(userData) as IUser;
+		}
+	};
+
+	public GetAdmin = () => {
+		return this.admin;
 	};
 
 	private SetUsers = (users: IUser[]) => {
@@ -119,12 +147,24 @@ class AdminService {
 		}
 	};
 
+	public DeleteUser = async (id: number) => {
+		const response = await apiFetch(`/admin/user/${id}`, {
+			method: 'DELETE'
+		});
+
+		if (response.ok) {
+			return true;
+		} else {
+			return false;
+		}
+	};
+
 	public CreateBank = async (
 		name: string,
 		address: string,
 		bankCode: string,
 		swiftCode: string
-	) => {
+	): Promise<{ success: boolean; errors: string[] }> => {
 		const response = await apiFetch('/admin/bank', {
 			method: 'POST',
 			body: JSON.stringify({ name, address, bankCode, swiftCode })
@@ -132,7 +172,12 @@ class AdminService {
 
 		if (response.ok) {
 			await this.FetchBanks();
+			return { success: true, errors: [] };
 		}
+
+		const result = await response.json();
+		const errors = parseAspNetErrors(result);
+		return { success: false, errors };
 	};
 
 	public UpdateBank = async (
@@ -141,7 +186,7 @@ class AdminService {
 		address: string,
 		bankCode: string,
 		swiftCode: string
-	) => {
+	): Promise<{ success: boolean; errors: string[] }> => {
 		const response = await apiFetch(`/admin/bank/${id}`, {
 			method: 'PATCH',
 			body: JSON.stringify({ name, address, bankCode, swiftCode })
@@ -149,17 +194,20 @@ class AdminService {
 
 		if (response.ok) {
 			await this.FetchBanks();
+			return { success: true, errors: [] };
 		}
+
+		const result = await response.json();
+		const errors = parseAspNetErrors(result);
+		return { success: false, errors };
 	};
 
 	public FetchUsers = async () => {
-		const response = await apiFetch('/admin/user', {
-			credentials: 'include'
-		});
+		const response = await apiFetch('/admin/user');
 
-		const result = await response.json();
 		if (response.ok) {
-			this.SetUsers(result);
+			const result = await response.json();
+			this.users = result;
 		}
 	};
 
@@ -212,11 +260,32 @@ class AdminService {
 		balance: number,
 		typeId: string,
 		bankId: string,
-		userId: string
-	) => {
+		userId: number
+	): Promise<{ success: boolean; errors: string[] }> => {
 		const response = await apiFetch(`/admin/account/users/${userId}/account`, {
 			method: 'POST',
-			body: JSON.stringify({ accountNumber, bankId, typeId, balance })
+			body: JSON.stringify({ accountNumber, bankId, typeId, balance, userId })
+		});
+
+		if (response.ok) {
+			return { success: true, errors: [] };
+		}
+
+		const result = await response.json();
+		const errors = parseAspNetErrors(result);
+		return { success: false, errors: errors };
+	};
+
+	public UpdateAccount = async (
+		id: number,
+		accountNumber: string,
+		balance: number,
+		bankId: number,
+		typeId: number
+	) => {
+		const response = await apiFetch(`/admin/account/${id}`, {
+			method: 'PATCH',
+			body: JSON.stringify({ accountNumber, balance, bankId, typeId })
 		});
 
 		if (response.ok) {
@@ -226,15 +295,9 @@ class AdminService {
 		return false;
 	};
 
-	public UpdateAccount = async (
-		id: number,
-		accountNumber: string,
-		bankId: number,
-		typeId: number
-	) => {
-		const response = await apiFetch(`/admin/account/${id}`, {
-			method: 'PATCH',
-			body: JSON.stringify({ accountNumber, bankId, typeId })
+	public DeleteAccount = async (id: number) => {
+		const response = await apiFetch(`/admin/account/accounts/${id}`, {
+			method: 'DELETE'
 		});
 
 		if (response.ok) {
@@ -260,7 +323,7 @@ class AdminService {
 		expirationDate: string,
 		securityCode: string,
 		isBlocked: boolean
-	) => {
+	): Promise<{ success: boolean; errors: string[] }> => {
 		const response = await apiFetch(`/admin/card/accounts/${accountId}/cards`, {
 			method: 'POST',
 			body: JSON.stringify({
@@ -274,13 +337,27 @@ class AdminService {
 		});
 
 		if (response.ok) {
+			return { success: true, errors: [] };
+		}
+
+		const result = await response.json();
+		const errors = parseAspNetErrors(result);
+		return { success: false, errors: errors };
+	};
+
+	public DeleteCard = async (id: number) => {
+		const response = await apiFetch(`/admin/card/cards/${id}`, {
+			method: 'DELETE'
+		});
+
+		if (response.ok) {
 			return true;
 		}
 
 		return false;
 	};
 
-	public UpdateCard = async (
+	/*public UpdateCard = async (
 		accountId: string,
 		cardNumber: string,
 		typeId: string,
@@ -289,7 +366,7 @@ class AdminService {
 		isBlocked: boolean
 	) => {
 		return false;
-	};
+	};*/
 
 	public Logout = async (): Promise<boolean> => {
 		const response = await apiFetch('/security/account/logout', {
@@ -303,18 +380,6 @@ class AdminService {
 		}
 
 		return false;
-	};
-
-	private TryLoadAdmin = () => {
-		const userData = sessionStorage.getItem('admin');
-
-		if (userData) {
-			this.admin = JSON.parse(userData) as IUser;
-		}
-	};
-
-	public GetAdmin = () => {
-		return this.admin;
 	};
 }
 

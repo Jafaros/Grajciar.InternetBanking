@@ -1,6 +1,5 @@
-import { faCreditCard, faHome } from '@fortawesome/free-regular-svg-icons';
+import { faHome } from '@fortawesome/free-regular-svg-icons';
 import {
-	faArrowRightArrowLeft,
 	faArrowRightToBracket,
 	faBank,
 	faCog,
@@ -31,31 +30,19 @@ export const NAVBAR_LINKS: Link[] = [
 // Odkazy pro uživatelskou navigaci
 export const USER_LINKS: Link[] = [
 	{
-		title: 'MindBank - Uživatel',
+		title: 'MindBank | Uživatel',
 		name: 'Domů',
 		slug: '/user',
 		icon: faHouseUser
 	},
 	{
-		title: 'MindBank - Účty',
+		title: 'MindBank | Účty',
 		name: 'Účty',
 		slug: '/user/accounts',
 		icon: faFileInvoice
 	},
 	{
-		title: 'MindBank - Karty',
-		name: 'Karty',
-		slug: '/user/cards',
-		icon: faCreditCard
-	},
-	{
-		title: 'MindBank - Transakce',
-		name: 'Transakce',
-		slug: '/user/transactions',
-		icon: faArrowRightArrowLeft
-	},
-	{
-		title: 'MindBank - Nastavení',
+		title: 'MindBank | Nastavení',
 		name: 'Nastavení',
 		slug: '/user/settings',
 		icon: faCog

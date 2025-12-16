@@ -13,7 +13,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
         { 
             List<User> users = new List<User>();
 
-            var u1 = new User()
+            /*var u1 = new User()
             { 
                 Id = 3,
                 UserName = "petrgrajciar",             
@@ -49,7 +49,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
                 DateOfBirth = new DateTime(2000, 1, 1)
             };
 
-            users.AddRange(u1, u2, u3);
+            users.AddRange(u1, u2, u3);*/
 
             return users;
         }
@@ -103,6 +103,30 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
             };
 
             return manager;
+        }
+
+        public User GetCustomer()
+        {
+            User customer = new User()
+            {
+                Id = 3,
+                FirstName = "Petr",
+                LastName = "Grajciar",
+                UserName = "petrgrajciar",
+                Email = "petr.grajciar@gmail.com",
+                EmailConfirmed = true,
+                PasswordHash = "AQAAAAIAAYagAAAAECtcRvpkX4e7bdXXGJa8tNlOGJdH/7P9xaiWiBiiKM1yaoCKpWdvtnkJsb/vh4WPEQ==",
+                SecurityStamp = "MAJXOSATJKOEM4YFF32Y5G2XPR5OFEL6",
+                ConcurrencyStamp = "7a8d96fd-5918-441b-b800-cbafa99de97b",
+                PhoneNumber = null,
+                PhoneNumberConfirmed = false,
+                TwoFactorEnabled = false,
+                LockoutEnd = null,
+                LockoutEnabled = true,
+                AccessFailedCount = 0
+            };
+
+            return customer;
         }
     }
 }

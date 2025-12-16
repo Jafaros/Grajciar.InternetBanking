@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import BankAccountModal from '$lib/components/BankAccountModal.svelte';
 	import Spinner from '$lib/components/Spinner.svelte';
@@ -57,6 +58,12 @@
 
 		errors = await adminState.UpdateUser(updateUser as IUser);
 		loading = false;
+	};
+
+	const Delete = async () => {
+		if (await adminState.DeleteUser(Number(page.params.id))) {
+			await goto(`/admin/users`, { replaceState: true });
+		}
 	};
 
 	let selectedAccount = $state<IAccount | null>(null);
@@ -188,15 +195,24 @@
 					</div>
 				</div>
 
-				<button
-					type="submit"
-					class="inline-flex cursor-pointer items-center justify-center gap-3 rounded-lg bg-blue-500 px-5 py-3 font-semibold text-white"
-				>
-					{#if loading}
-						<Spinner />
-					{/if}
-					Uložit
-				</button>
+				<div class="flex items-center gap-2">
+					<button
+						type="button"
+						onclick={Delete}
+						class="inline-flex flex-1 cursor-pointer items-center justify-center gap-3 rounded-lg bg-red-500 px-5 py-3 font-semibold text-white"
+					>
+						Odstranit
+					</button>
+					<button
+						type="submit"
+						class="inline-flex flex-1 cursor-pointer items-center justify-center gap-3 rounded-lg bg-blue-500 px-5 py-3 font-semibold text-white"
+					>
+						{#if loading}
+							<Spinner />
+						{/if}
+						Uložit
+					</button>
+				</div>
 			</form>
 
 			<div class="flex-1">

@@ -8,7 +8,7 @@ namespace Grajciar.InternetBanking.Application.Abstraction
     {
         IList<CardDTO> GetByAccount(int accountId);
         CardDTO? Get(int id);
-        int CreateForAccount(int accountId, CardCreateDTO cardDto);
+        Task CreateForAccount(int accountId, CardCreateDTO cardDto);
         bool InitiateCardPayment(int cardId, TransactionCreateDTO transaction);
         bool Delete(int id);
         bool Block(int id);

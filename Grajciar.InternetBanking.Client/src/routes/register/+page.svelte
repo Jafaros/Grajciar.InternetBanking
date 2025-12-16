@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import Spinner from '$lib/components/Spinner.svelte';
 	import { GetUserState } from '$lib/services/user.service.svelte';
-	import { apiFetch } from '$lib/utils/fetch';
+	import { apiFetch, parseAspNetErrors } from '$lib/utils/fetch';
 	import { fly } from 'svelte/transition';
 	import logo from '$lib/assets/logo.png';
 	import { GetAdminState } from '$lib/services/admin.service.svelte';
@@ -35,15 +35,11 @@
 			body: JSON.stringify({ userName, firstName, lastName, email, tel, password, dateOfBirth })
 		});
 
-		const result = await response.json();
-
-		if (!result.ok && !result.success) {
-			errors.push(result.errors);
-		}
-
-		if (response.ok) {
+		if (!response.ok) {
+			const result = await response.json();
+			errors = parseAspNetErrors(result);
+		} else {
 			errors = [];
-
 			await goto('/login', { replaceState: true });
 		}
 
@@ -145,9 +141,11 @@
 			/>
 		</div>
 
-		{#each errors as error}
-			<p class="text-center text-red-500" in:fly={{ x: -20 }}>{error}</p>
-		{/each}
+		{#if errors.length > 0}
+			{#each errors as error}
+				<p class="text-center text-red-500" in:fly={{ x: -20 }}>{error}</p>
+			{/each}
+		{/if}
 
 		<button
 			type="submit"

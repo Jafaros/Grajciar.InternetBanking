@@ -15,5 +15,6 @@ namespace Grajciar.InternetBanking.Application.DTO.User
         public DateTime? UpdatedAt { get; set; }
         public string FullName => $"{FirstName} {LastName}";
         public string[] Roles { get; set; }
+        public string? ProfileImagePath { get; set; }
     }
 }

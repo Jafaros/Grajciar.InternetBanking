@@ -30,24 +30,30 @@
 	let typeId = $derived(card ? card.typeId : 0);
 	let accountId = $derived(card ? card.accountId : '');
 
+	let errors = $state<string[]>([]);
+
 	const adminState = GetAdminState();
 
 	const Create = async () => {
-		if (
-			await adminState.CreateCard(
-				accountId,
-				cardNumber,
-				typeId,
-				expirationDate,
-				securityCode,
-				isBlocked
-			)
-		)
+		const result = await adminState.CreateCard(
+			accountId,
+			cardNumber,
+			typeId,
+			expirationDate,
+			securityCode,
+			isBlocked
+		);
+
+		if (result.success) {
 			onSuccess();
+			onClose();
+		} else {
+			errors = result.errors;
+		}
 	};
 
 	const Update = async () => {
-		if (
+		/*if (
 			await adminState.UpdateCard(
 				accountId,
 				cardNumber,
@@ -57,7 +63,16 @@
 				isBlocked
 			)
 		)
-			onSuccess();
+			onSuccess();*/
+	};
+
+	const Delete = async () => {
+		if (id) {
+			if (await adminState.DeleteCard(id)) {
+				onSuccess();
+				onClose();
+			}
+		}
 	};
 
 	const Submit = async () => {
@@ -66,8 +81,6 @@
 		} else {
 			await Create();
 		}
-
-		onClose();
 	};
 </script>
 
@@ -98,7 +111,7 @@
 					class="rounded border border-white bg-slate-700 text-white"
 					bind:value={cardNumber}
 					maxlength="16"
-					minlength="16"
+					minlength="13"
 					required
 				/>
 			</div>
@@ -119,6 +132,8 @@
 					type="text"
 					class="rounded border border-white bg-slate-700 text-white"
 					bind:value={securityCode}
+					maxlength="3"
+					minlength="3"
 					required
 				/>
 			</div>
@@ -158,11 +173,29 @@
 				</select>
 			</div>
 
-			<button
-				type="submit"
-				class="cursor-pointer rounded bg-blue-500 px-5 py-3 text-lg font-semibold text-white"
-				>Uložit</button
-			>
+			{#if errors.length}
+				<ul class="text-sm text-red-600">
+					{#each errors as error}
+						<li>{error}</li>
+					{/each}
+				</ul>
+			{/if}
+
+			<div class="flex items-center gap-2">
+				{#if id}
+					<button
+						type="button"
+						onclick={Delete}
+						class="flex-1 cursor-pointer rounded bg-red-500 px-5 py-3 text-lg font-semibold text-white"
+						>Odstranit</button
+					>
+				{/if}
+				<!--<button
+					type="submit"
+					class="flex-1 cursor-pointer rounded bg-blue-500 px-5 py-3 text-lg font-semibold text-white"
+					>Uložit</button
+			>-->
+			</div>
 		</form>
 	</div>
 </div>

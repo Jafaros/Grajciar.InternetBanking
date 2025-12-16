@@ -6,6 +6,6 @@ namespace Grajciar.InternetBanking.Application.Abstraction
     {
         IList<TransactionDTO> GetByAccount(int accountId);
         TransactionDTO? Get(int id);
-        void Create(TransactionCreateDTO transaction);
+        List<string> Create(TransactionCreateDTO transaction);
     }
 }

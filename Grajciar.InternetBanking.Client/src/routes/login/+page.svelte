@@ -5,9 +5,9 @@
 	import { apiFetch } from '$lib/utils/fetch';
 	import { fly } from 'svelte/transition';
 	import logo from '$lib/assets/logo.png';
-	import { GetAdminState, SetAdminState } from '$lib/services/admin.service.svelte';
+	import { GetAdminState } from '$lib/services/admin.service.svelte';
 
-	let email = $state<string>('admin@admin.cz'); // petr.grajciar@gmail.com
+	let email = $state<string>('petr.grajciar@gmail.com'); // petr.grajciar@gmail.com   admin@admin.cz
 	let password = $state<string>('12345');
 	let errorMessage = $state<string>('');
 

@@ -103,6 +103,7 @@ namespace Grajciar.InternetBanking.Application.Implementation
             account.AccountNumber = dto.AccountNumber;
             account.TypeId = dto.TypeId;
             account.BankId = dto.BankId;
+            account.Balance = dto.Balance;
 
             _dbContext.SaveChanges();
             return true;

@@ -3,6 +3,7 @@ using Grajciar.InternetBanking.Application.DTO.User;
 using Grajciar.InternetBanking.Domain.Interfaces;
 using Grajciar.InternetBanking.Infrastructure.Database;
 using Grajciar.InternetBanking.Infrastructure.Identity;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,11 +13,13 @@ namespace Grajciar.InternetBanking.Application.Implementation
     {
         InternetBankingDbContext _dbContext;
         private readonly UserManager<User> _userManager;
+        private readonly IWebHostEnvironment _env;
 
-        public UserAppService(InternetBankingDbContext dbContext, UserManager<User> userManager)
+        public UserAppService(InternetBankingDbContext dbContext, UserManager<User> userManager, IWebHostEnvironment env)
         {
             _dbContext = dbContext;
             _userManager = userManager;
+            _env = env;
         }
 
         public async Task<IList<UserDTO>> Select()
@@ -33,7 +36,8 @@ namespace Grajciar.InternetBanking.Application.Implementation
                     Tel = u.Tel,
                     DateOfBirth = u.DateOfBirth,
                     CreatedAt = u.CreatedAt,
-                    UpdatedAt = u.UpdatedAt
+                    UpdatedAt = u.UpdatedAt,
+                    ProfileImagePath = u.ProfileImagePath
                 })
                 .ToListAsync();
 
@@ -65,7 +69,8 @@ namespace Grajciar.InternetBanking.Application.Implementation
                 Tel = user.Tel,
                 DateOfBirth = user.DateOfBirth,
                 CreatedAt = user.CreatedAt,
-                UpdatedAt = user.UpdatedAt
+                UpdatedAt = user.UpdatedAt,
+                ProfileImagePath = user.ProfileImagePath
             };
 
             var entity = await _userManager.FindByIdAsync(user.Id.ToString());
@@ -76,26 +81,53 @@ namespace Grajciar.InternetBanking.Application.Implementation
 
         public async Task<UserUpdateResponseDTO> Update(int id, UserUpdateDTO dto)
         {
-            UserUpdateResponseDTO response = new UserUpdateResponseDTO()
-            {
-                Success = true,
-            };
-            var user = _dbContext.Users.FirstOrDefault(u => u.Id == id);
+            var response = new UserUpdateResponseDTO { Success = true };
 
-            if (user == null) {
+            var user = _dbContext.Users.FirstOrDefault(u => u.Id == id);
+            if (user == null)
+            {
                 response.Success = false;
                 response.Errors.Add("Uživatel neexistuje");
                 return response;
             }
 
-            user.UserName = dto.UserName;
-            user.FirstName = dto.FirstName;
-            user.LastName = dto.LastName;
-            user.Email = dto.Email;
-            user.Tel = dto.Tel;
+            if (dto.UserName != null) user.UserName = dto.UserName;
+            if (dto.FirstName != null) user.FirstName = dto.FirstName;
+            if (dto.LastName != null) user.LastName = dto.LastName;
+            if (dto.Email != null) user.Email = dto.Email;
+            if (dto.Tel != null) user.Tel = dto.Tel;
+
+            if (dto.ProfileImage != null && dto.ProfileImage.Length > 0)
+            {
+                var solutionRoot = Directory.GetParent(_env.ContentRootPath)!.FullName;
+
+                var uploadsRoot = Path.Combine(
+                    solutionRoot,
+                    "Grajciar.InternetBanking.Client",
+                    "static",
+                    "uploads",
+                    "users",
+                    user.Id.ToString()
+                );
+
+                Directory.CreateDirectory(uploadsRoot);
+
+                var extension = Path.GetExtension(dto.ProfileImage.FileName);
+                var fileName = $"profile{extension}";
+                var filePath = Path.Combine(uploadsRoot, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await dto.ProfileImage.CopyToAsync(stream);
+                }
+
+                user.ProfileImagePath = $"/uploads/users/{user.Id}/{fileName}";
+            }
+
             user.UpdatedAt = DateTime.UtcNow;
 
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
+
             response.User = await MapToUserDTO(user);
             return response;
         }
@@ -127,7 +159,8 @@ namespace Grajciar.InternetBanking.Application.Implementation
                 DateOfBirth = user.DateOfBirth,
                 CreatedAt = user.CreatedAt,
                 UpdatedAt = user.UpdatedAt,
-                Roles = roles.ToArray()
+                Roles = roles.ToArray(),
+                ProfileImagePath = user.ProfileImagePath
             };
         }
     }

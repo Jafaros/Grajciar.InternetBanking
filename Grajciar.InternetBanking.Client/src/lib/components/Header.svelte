@@ -5,7 +5,9 @@
 	const userState = GetUserState();
 </script>
 
-<div class="flex items-center justify-between gap-5 border border-b border-zinc-200 px-10 py-5">
+<div
+	class="flex items-center justify-between gap-5 border border-b border-zinc-200 px-10 py-5 max-sm:px-5 max-sm:py-3"
+>
 	<a href="/">
 		<img src={logo} alt="MindBank" class="w-14" />
 	</a>

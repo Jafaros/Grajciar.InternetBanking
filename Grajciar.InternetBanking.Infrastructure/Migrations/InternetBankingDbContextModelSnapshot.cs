@@ -32,10 +32,11 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
 
                     b.Property<string>("AccountNumber")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(26)
+                        .HasColumnType("varchar(26)");
 
                     b.Property<decimal>("Balance")
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("BankId")
                         .HasColumnType("int");
@@ -66,7 +67,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountNumber = "123456789",
                             Balance = 1000m,
                             BankId = 1,
-                            CreatedAt = new DateTime(2025, 12, 12, 23, 31, 13, 780, DateTimeKind.Utc).AddTicks(3765),
+                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(82),
                             TypeId = 1,
                             UserId = 1
                         },
@@ -76,7 +77,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountNumber = "321654987",
                             Balance = 500m,
                             BankId = 2,
-                            CreatedAt = new DateTime(2025, 12, 12, 23, 31, 13, 780, DateTimeKind.Utc).AddTicks(4217),
+                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(733),
                             TypeId = 4,
                             UserId = 2
                         },
@@ -86,7 +87,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountNumber = "987654321",
                             Balance = 2000m,
                             BankId = 3,
-                            CreatedAt = new DateTime(2025, 12, 12, 23, 31, 13, 780, DateTimeKind.Utc).AddTicks(4218),
+                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(735),
                             TypeId = 3,
                             UserId = 3
                         });
@@ -102,19 +103,23 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("BankCode")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("SwiftCode")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(11)
+                        .HasColumnType("varchar(11)");
 
                     b.HasKey("Id");
 
@@ -157,7 +162,8 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");
 
@@ -199,7 +205,8 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
 
                     b.Property<string>("CardHolderName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("CardNumber")
                         .IsRequired()
@@ -236,7 +243,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountId = 1,
                             CardHolderName = "Petr Grajciar",
                             CardNumber = "0123456789012345",
-                            CreatedAt = new DateTime(2025, 12, 12, 23, 31, 13, 780, DateTimeKind.Utc).AddTicks(7302),
+                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(5212),
                             ExpirationDate = new DateTime(2026, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             SecurityCode = "123",
@@ -248,7 +255,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountId = 2,
                             CardHolderName = "Karel Chleba",
                             CardNumber = "1234951274563654",
-                            CreatedAt = new DateTime(2025, 12, 12, 23, 31, 13, 780, DateTimeKind.Utc).AddTicks(7419),
+                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(5384),
                             ExpirationDate = new DateTime(2027, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             SecurityCode = "213",
@@ -260,7 +267,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountId = 3,
                             CardHolderName = "Šimon Rohlík",
                             CardNumber = "1478852365891452",
-                            CreatedAt = new DateTime(2025, 12, 12, 23, 31, 13, 780, DateTimeKind.Utc).AddTicks(7420),
+                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(5386),
                             ExpirationDate = new DateTime(2025, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             SecurityCode = "231",
@@ -277,10 +284,9 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(65,30)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ConstantSymbol")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)");
 
@@ -288,19 +294,21 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
 
                     b.Property<int?>("FromAccountId")
                         .HasColumnType("int");
 
                     b.Property<string>("FromAccountNumber")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(26)
+                        .HasColumnType("varchar(26)");
 
                     b.Property<string>("FromBankCode")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -310,17 +318,18 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
 
                     b.Property<string>("ToAccountNumber")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(26)
+                        .HasColumnType("varchar(26)");
 
                     b.Property<string>("ToBankCode")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
 
                     b.Property<int>("TransactionType")
                         .HasColumnType("int");
 
                     b.Property<string>("VariableSymbol")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)");
 
@@ -415,11 +424,13 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("tinyint(1)");
@@ -444,11 +455,15 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("tinyint(1)");
 
+                    b.Property<string>("ProfileImagePath")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("longtext");
 
                     b.Property<string>("Tel")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(13)
+                        .HasColumnType("varchar(13)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("tinyint(1)");
@@ -472,60 +487,6 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                     b.ToTable("AspNetUsers", (string)null);
 
                     b.HasData(
-                        new
-                        {
-                            Id = 3,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "4ee7826f-0653-412e-bf47-3d574dc8e3f3",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "petrgrajciar@test.cz",
-                            EmailConfirmed = false,
-                            FirstName = "Petr",
-                            LastName = "Grajciar",
-                            LockoutEnabled = false,
-                            PasswordHash = "hashedpassword123",
-                            PhoneNumberConfirmed = false,
-                            Tel = "+420123456789",
-                            TwoFactorEnabled = false,
-                            UserName = "petrgrajciar"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "8a67faff-732a-437b-8b83-481a8534e38f",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "karelchleba@test.cz",
-                            EmailConfirmed = false,
-                            FirstName = "Karel",
-                            LastName = "Chleba",
-                            LockoutEnabled = false,
-                            PasswordHash = "hashedpassword123",
-                            PhoneNumberConfirmed = false,
-                            Tel = "+420123456789",
-                            TwoFactorEnabled = false,
-                            UserName = "karel"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "d2a6b58f-48d8-48f9-901b-a0a37ba7e5ef",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "simonrohlik@test.cz",
-                            EmailConfirmed = false,
-                            FirstName = "Šimon",
-                            LastName = "Rohlík",
-                            LockoutEnabled = false,
-                            PasswordHash = "hashedpassword123",
-                            PhoneNumberConfirmed = false,
-                            Tel = "+420123456789",
-                            TwoFactorEnabled = false,
-                            UserName = "simon"
-                        },
                         new
                         {
                             Id = 1,
@@ -563,6 +524,24 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             SecurityStamp = "MAJXOSATJKOEM4YFF32Y5G2XPR5OFEL6",
                             TwoFactorEnabled = false,
                             UserName = "manager"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "7a8d96fd-5918-441b-b800-cbafa99de97b",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "petr.grajciar@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Petr",
+                            LastName = "Grajciar",
+                            LockoutEnabled = true,
+                            PasswordHash = "AQAAAAIAAYagAAAAECtcRvpkX4e7bdXXGJa8tNlOGJdH/7P9xaiWiBiiKM1yaoCKpWdvtnkJsb/vh4WPEQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "MAJXOSATJKOEM4YFF32Y5G2XPR5OFEL6",
+                            TwoFactorEnabled = false,
+                            UserName = "petrgrajciar"
                         });
                 });
 
@@ -673,6 +652,11 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                         new
                         {
                             UserId = 2,
+                            RoleId = 3
+                        },
+                        new
+                        {
+                            UserId = 3,
                             RoleId = 3
                         });
                 });

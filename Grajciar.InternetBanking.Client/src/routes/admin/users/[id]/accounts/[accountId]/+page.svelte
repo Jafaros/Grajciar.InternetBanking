@@ -11,7 +11,7 @@
 		type ICard
 	} from '$lib/services/admin.service.svelte';
 	import { faEdit } from '@fortawesome/free-regular-svg-icons';
-	import { faAngleLeft, faPlus } from '@fortawesome/free-solid-svg-icons';
+	import { faAngleLeft, faBalanceScale, faPlus } from '@fortawesome/free-solid-svg-icons';
 	import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
@@ -32,6 +32,7 @@
 
 	let id = $derived(account ? account.id : 0);
 	let accountNumber = $derived(account ? account.accountNumber : '');
+	let balance = $derived(account ? account.balance : 0);
 	let typeId = $derived(account ? account.typeId : 0);
 	let bankId = $derived(account ? account.bankId : 0);
 	let createdAt = $derived(account ? account.createdAt : '');
@@ -45,11 +46,17 @@
 	const Submit = async () => {
 		loading = true;
 
-		if (await adminState.UpdateAccount(id, accountNumber, bankId, typeId)) {
+		if (await adminState.UpdateAccount(id, accountNumber, balance, bankId, typeId)) {
 			account = await adminState.FetchAccount(accountId ?? '');
 		}
 
 		loading = false;
+	};
+
+	const Delete = async () => {
+		if (await adminState.DeleteAccount(id)) {
+			await goto(`/admin/users/${page.params.id}`, { replaceState: true });
+		}
 	};
 
 	let selectedCard = $state<ICard | null>(null);
@@ -121,9 +128,9 @@
 					<div class="flex w-full flex-col gap-2">
 						<span>Zůstatek</span>
 						<input
-							type="text"
-							bind:value={account.balance}
-							disabled
+							type="number"
+							bind:value={balance}
+							min="0"
 							class="rounded-md border-white bg-slate-700 disabled:border-slate-500 disabled:text-slate-500"
 						/>
 					</div>
@@ -138,15 +145,26 @@
 						/>
 					</div>
 
-					<button
-						type="submit"
-						class="flex cursor-pointer items-center justify-center gap-3 rounded bg-blue-500 px-5 py-3 text-white"
-					>
-						{#if loading}
-							<Spinner />
+					<div class="flex items-center gap-2">
+						{#if id}
+							<button
+								type="button"
+								onclick={Delete}
+								class="flex flex-1 cursor-pointer items-center justify-center gap-3 rounded bg-red-500 px-5 py-3 text-white"
+							>
+								Odstranit
+							</button>
 						{/if}
-						Uložit
-					</button>
+						<button
+							type="submit"
+							class="flex flex-1 cursor-pointer items-center justify-center gap-3 rounded bg-blue-500 px-5 py-3 text-white"
+						>
+							{#if loading}
+								<Spinner />
+							{/if}
+							Uložit
+						</button>
+					</div>
 				</form>
 				<div class="flex-1">
 					<h3 class="text-2xl text-white">Bankovní karty</h3>

@@ -51,5 +51,19 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
 
             return managerUserRoles;
         }
+
+        public List<IdentityUserRole<int>> GetRolesForCustomer()
+        {
+            List<IdentityUserRole<int>> customerUserRoles = new List<IdentityUserRole<int>>()
+            {
+                new IdentityUserRole<int>()
+                {
+                    UserId = 3,
+                    RoleId = 3
+                }
+            };
+
+            return customerUserRoles;
+        }
     }
 }

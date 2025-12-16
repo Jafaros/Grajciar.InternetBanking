@@ -25,7 +25,7 @@
 		{#each USER_LINKS as link}
 			<a
 				href={link.slug}
-				class="flex items-center gap-3 rounded-lg px-4 py-2 text-xl text-white hover:bg-white/15"
+				class="flex items-center gap-3 rounded-lg px-4 py-2 text-xl text-white hover:bg-white/15 max-md:px-2"
 				><FontAwesomeIcon icon={link.icon} class="text-2xl" /> {link.name}</a
 			>
 		{/each}
@@ -33,7 +33,7 @@
 		<button
 			type="button"
 			onclick={Logout}
-			class="mt-auto flex cursor-pointer items-center gap-3 rounded-lg px-4 py-2 text-xl text-white hover:bg-white/15"
+			class="mt-auto flex cursor-pointer items-center gap-3 rounded-lg px-4 py-2 text-xl text-white hover:bg-white/15 max-md:px-2"
 		>
 			<FontAwesomeIcon icon={faArrowRightFromBracket} class="text-2xl" />
 			Odhlásit se

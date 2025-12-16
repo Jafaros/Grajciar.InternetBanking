@@ -19,9 +19,10 @@
 	let id = $derived(account ? account.id : '');
 	let accountNumber = $derived(account ? account.accountNumber : '');
 	let balance = $derived(account ? account.balance : 0);
-	let createdAt = $derived(account ? account.createdAt : '');
 	let typeId = $derived(account ? account.typeId : '');
 	let bankId = $derived(account ? account.bankId : '');
+
+	let errors = $state<string[]>([]);
 
 	const adminState = GetAdminState();
 	let banks = $state<IBank[]>(adminState.GetBanks());
@@ -29,20 +30,23 @@
 	const userId = $derived(page.params.id);
 
 	const Create = async () => {
-		if (await adminState.CreateAccount(accountNumber, balance, typeId, bankId, userId ?? ''))
+		const response = await adminState.CreateAccount(
+			accountNumber,
+			balance,
+			typeId,
+			bankId,
+			Number(userId)
+		);
+		if (response.success) {
 			onSuccess();
+			onClose();
+		} else {
+			errors = response.errors;
+		}
 	};
 
-	const Update = async () => {};
-
 	const Submit = async () => {
-		if (id) {
-			await Update();
-		} else {
-			await Create();
-		}
-
-		onClose();
+		await Create();
 	};
 </script>
 
@@ -70,8 +74,8 @@
 					type="text"
 					bind:value={accountNumber}
 					class="rounded border border-white bg-slate-700 text-white"
-					minlength="9"
-					maxlength="9"
+					minlength="10"
+					maxlength="26"
 				/>
 			</div>
 
@@ -101,6 +105,14 @@
 					{/each}
 				</select>
 			</div>
+
+			{#if errors.length}
+				<ul class="text-sm text-red-600">
+					{#each errors as error}
+						<li>{error}</li>
+					{/each}
+				</ul>
+			{/if}
 
 			<button
 				type="submit"

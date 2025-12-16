@@ -55,7 +55,7 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
 
             if (deleted)
             {
-                return Ok("User deleted successfully");
+                return Ok();
             }
             else
                 return NotFound();

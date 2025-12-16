@@ -24,8 +24,8 @@ namespace Grajciar.InternetBanking.WebAPI.Areas.Admin.Controllers
         }
 
         [HttpPost("Accounts/{accountId}/Cards")]
-        public IActionResult Create(int accountId, CardCreateDTO card) {
-            _cardAppService.CreateForAccount(accountId, card);
+        public async Task<IActionResult> Create(int accountId, CardCreateDTO card) {
+            await _cardAppService.CreateForAccount(accountId, card);
             return Ok();
         }
 

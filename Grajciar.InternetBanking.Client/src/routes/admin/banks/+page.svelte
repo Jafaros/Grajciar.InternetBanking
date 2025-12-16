@@ -35,7 +35,7 @@
 	<div in:fade>
 		<h2 class="text-5xl text-white">Banky</h2>
 
-		<div class="mt-8 grid grid-cols-3 gap-8">
+		<div class="mt-8 grid grid-cols-3 gap-8 max-lg:grid-cols-2 max-md:grid-cols-1 max-md:gap-3">
 			{#each banks as bank, i (bank.id)}
 				<div
 					class="relative rounded-lg border border-white p-3 text-white"

@@ -16,14 +16,26 @@
 	let bankCode = $derived(bank ? bank.bankCode : '');
 	let swiftCode = $derived(bank ? bank.swiftCode : '');
 
+	let errors = $state<string[]>([]);
+
 	const adminState = GetAdminState();
 
 	const Create = async () => {
-		await adminState.CreateBank(name, address, bankCode, swiftCode);
+		const response = await adminState.CreateBank(name, address, bankCode, swiftCode);
+		if (response.success) {
+			onClose();
+		} else {
+			errors = response.errors;
+		}
 	};
 
 	const Update = async () => {
-		await adminState.UpdateBank(id, name, address, bankCode, swiftCode);
+		const response = await adminState.UpdateBank(id, name, address, bankCode, swiftCode);
+		if (response.success) {
+			onClose();
+		} else {
+			errors = response.errors;
+		}
 	};
 
 	const Submit = async () => {
@@ -32,8 +44,6 @@
 		} else {
 			await Create();
 		}
-
-		onClose();
 	};
 </script>
 
@@ -90,9 +100,20 @@
 					type="text"
 					class="rounded border bg-slate-700 text-white"
 					bind:value={swiftCode}
+					minlength="8"
+					placeholder="SWIFT / BIC (např. KOMBCZPP)"
+					maxlength="11"
 					required
 				/>
 			</div>
+
+			{#if errors.length}
+				<ul class="text-sm text-red-600">
+					{#each errors as error}
+						<li>{error}</li>
+					{/each}
+				</ul>
+			{/if}
 
 			<button
 				type="submit"

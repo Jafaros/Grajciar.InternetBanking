@@ -43,17 +43,20 @@ namespace Grajciar.InternetBanking.Infrastructure.Database
             UserInit userInit = new UserInit();
             User admin = userInit.GetAdmin();
             User manager = userInit.GetManager();
+            User customer = userInit.GetCustomer();
 
             modelBuilder.Entity<User>().HasData(
-                userInit.GenerateUsers3().Concat([admin, manager]).ToArray()
+                userInit.GenerateUsers3().Concat([admin, manager, customer]).ToArray()
             );
 
             UserRolesInit userRolesInit = new UserRolesInit();
             List<IdentityUserRole<int>> adminUserRoles = userRolesInit.GetRolesForAdmin();
             List<IdentityUserRole<int>> managerUserRoles = userRolesInit.GetRolesForManager();
+            List<IdentityUserRole<int>> customerUserRoles = userRolesInit.GetRolesForCustomer();
+
             modelBuilder.Entity<IdentityUserRole<int>>().HasData(adminUserRoles);
             modelBuilder.Entity<IdentityUserRole<int>>().HasData(managerUserRoles);
-
+            modelBuilder.Entity<IdentityUserRole<int>>().HasData(customerUserRoles);
 
             var bankInit = new BankInit();
             modelBuilder.Entity<Bank>().HasData(bankInit.GenerateBanks3());

@@ -7,13 +7,31 @@
 	import { fade } from 'svelte/transition';
 	import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
 	import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+	import TransactionModal from '$lib/components/TransactionModal.svelte';
 
 	const userState = GetUserState();
 	const user = $derived(userState.GetUser());
 
 	let mounted = $state<boolean>(false);
 	onMount(() => (mounted = true));
+
+	let transitionModalShown = $state<boolean>(false);
+	const OpenModal = () => {
+		transitionModalShown = true;
+	};
+
+	const CloseModal = () => {
+		transitionModalShown = false;
+	};
+
+	const OnSucces = async () => {
+		await userState.TryLoadAccounts();
+	};
 </script>
+
+{#if transitionModalShown}
+	<TransactionModal accountId={null} onClose={CloseModal} onSuccess={OnSucces} />
+{/if}
 
 {#if mounted}
 	<div in:fade>
@@ -23,19 +41,21 @@
 				<p class="mt-1 text-xl text-white/50">Vítejte ve svém uživatelském účtě</p>
 			</div>
 
-			<div>
+			<div class="max-md:hidden">
 				<img
-					src={logo}
+					src={user?.profileImagePath ?? logo}
 					alt="Profilová fotka"
-					class="size-12 rounded-full border border-3 border-white object-cover"
+					class="aspect-square w-16 rounded-full border border-3 border-white object-cover"
 				/>
 			</div>
 		</div>
 
-		<div class="mt-5 grid grid-cols-3 gap-8">
+		<div class="mt-5 grid grid-cols-3 gap-8 max-lg:grid-cols-2 max-md:grid-cols-1">
 			<Card bg={'bg-slate-300'} color={'text-black'}>
 				<span class="text-lg uppercase">Celkový stav účtů</span>
-				<div class="text-3xl font-bold">{Number(1_000_000).toLocaleString()} Kč</div>
+				<div class="text-3xl font-bold">
+					{userState.GetAllAccountsBalance().toLocaleString()} Kč
+				</div>
 			</Card>
 
 			<Card bg={'bg-slate-500'} color={'text-white'}>
@@ -44,6 +64,7 @@
 					<div class="flex flex-col gap-2">
 						<button
 							type="button"
+							onclick={OpenModal}
 							class="flex aspect-square cursor-pointer items-center justify-center rounded-full bg-slate-700 p-3"
 							><FontAwesomeIcon icon={faPaperPlane} class="text-2xl" /></button
 						>

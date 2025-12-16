@@ -18,19 +18,15 @@ namespace Grajciar.InternetBanking.Application.Implementation
             _dbContext = dbContext;
         }
 
-        public int CreateForAccount(int accountId, CardCreateDTO cardDto)
+        public async Task CreateForAccount(int accountId, CardCreateDTO cardDto)
         {
             var account = _dbContext.Accounts.FirstOrDefault(a => a.Id == accountId);
-            if (account == null)
-                return 0;
 
             var card = MapToEntity(cardDto);
             card.AccountId = accountId;
 
             _dbContext.Cards.Add(card);
-            _dbContext.SaveChanges();
-
-            return card.Id;
+            await _dbContext.SaveChangesAsync();
         }
 
         public CardDTO? Get(int id)
@@ -153,7 +149,8 @@ namespace Grajciar.InternetBanking.Application.Implementation
                 ExpirationDate = dto.ExpirationDate,
                 IsBlocked = dto.IsBlocked,
                 CardHolderName = user.FullName,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                Type = (CardType)dto.TypeId
             };
         }
 

@@ -30,8 +30,10 @@ namespace Grajciar.InternetBanking.Application.Implementation
             return t == null ? null : MapToDTO(t);
         }
 
-        public void Create(TransactionCreateDTO dto)
+        public List<string> Create(TransactionCreateDTO dto)
         {
+            List<string> errors = new List<string>();
+
             var fromAccount = _dbContext.Accounts
                 .Include(a => a.Bank)
                 .FirstOrDefault(a =>
@@ -45,10 +47,17 @@ namespace Grajciar.InternetBanking.Application.Implementation
                     a.Bank.BankCode == dto.ToBankCode);
 
             if (fromAccount == null || toAccount == null)
-                throw new Exception("One or both accounts do not exist.");
+            {
+                errors.Add("Zadaný účet neexistuje");
+                return errors;
+            }
 
             if (fromAccount.Balance < dto.Amount)
-                throw new Exception("Insufficient funds.");
+            {
+                errors.Add("Nemáte dostatečný zůstatek na účtě");
+                return errors;
+            }
+
 
             fromAccount.Balance -= dto.Amount;
             toAccount.Balance += dto.Amount;
@@ -61,9 +70,10 @@ namespace Grajciar.InternetBanking.Application.Implementation
 
             _dbContext.Transactions.Add(transaction);
             _dbContext.SaveChanges();
+            return errors;
         }
 
-        private TransactionDTO MapToDTO(Transaction t)
+        private static TransactionDTO MapToDTO(Transaction t)
         {
             return new TransactionDTO
             {
@@ -79,7 +89,8 @@ namespace Grajciar.InternetBanking.Application.Implementation
                 TransactionType = t.TransactionType.ToString(),
                 Status = t.Status.ToString(),
                 ToAccountId = (int) t.ToAccountId,
-                FromAccountId = (int) t.FromAccountId
+                FromAccountId = (int) t.FromAccountId,
+                Description = t.Description
             };
         }
 
@@ -94,7 +105,8 @@ namespace Grajciar.InternetBanking.Application.Implementation
                 ConstantSymbol = dto.ConstantSymbol,
                 VariableSymbol = dto.VariableSymbol,
                 Amount = dto.Amount,
-                FromAccountId = dto.FromAccountId
+                FromAccountId = dto.FromAccountId,
+                Description = dto.Description
             };
         }
     }

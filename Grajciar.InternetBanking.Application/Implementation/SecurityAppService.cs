@@ -99,7 +99,8 @@ namespace Grajciar.InternetBanking.Application.Implementation
                 DateOfBirth = user.DateOfBirth,
                 CreatedAt = user.CreatedAt,
                 UpdatedAt = user.UpdatedAt,
-                Roles = roles.ToArray() 
+                Roles = roles.ToArray(),
+                ProfileImagePath = user.ProfileImagePath
             };
         }
     }
