@@ -189,12 +189,13 @@
 						class="flex-1 cursor-pointer rounded bg-red-500 px-5 py-3 text-lg font-semibold text-white"
 						>Odstranit</button
 					>
+				{:else}
+					<button
+						type="submit"
+						class="flex-1 cursor-pointer rounded bg-blue-500 px-5 py-3 text-lg font-semibold text-white"
+						>Uložit</button
+					>
 				{/if}
-				<!--<button
-					type="submit"
-					class="flex-1 cursor-pointer rounded bg-blue-500 px-5 py-3 text-lg font-semibold text-white"
-					>Uložit</button
-			>-->
 			</div>
 		</form>
 	</div>
