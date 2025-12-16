@@ -520,4 +520,3 @@ C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBankin
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\Grajciar.InternetBanking.WebAPI.pdb
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\Grajciar.InternetBanking.WebAPI.genruntimeconfig.cache
 C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\ref\Grajciar.InternetBanking.WebAPI.dll
-C:\Users\grajc\Documents\GitHub\Grajciar.InternetBanking\Grajciar.InternetBanking.WebAPI\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

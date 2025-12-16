@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Grajciar.InternetBanking.Infrastructure.Migrations
 {
     [DbContext(typeof(InternetBankingDbContext))]
-    [Migration("20251215212440_AdeddProfileImage")]
-    partial class AdeddProfileImage
+    [Migration("20251216003900_NewInitialCreate")]
+    partial class NewInitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,7 +70,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountNumber = "123456789",
                             Balance = 1000m,
                             BankId = 1,
-                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(82),
+                            CreatedAt = new DateTime(2025, 12, 16, 0, 38, 59, 555, DateTimeKind.Utc).AddTicks(2918),
                             TypeId = 1,
                             UserId = 1
                         },
@@ -80,7 +80,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountNumber = "321654987",
                             Balance = 500m,
                             BankId = 2,
-                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(733),
+                            CreatedAt = new DateTime(2025, 12, 16, 0, 38, 59, 555, DateTimeKind.Utc).AddTicks(3361),
                             TypeId = 4,
                             UserId = 2
                         },
@@ -90,7 +90,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountNumber = "987654321",
                             Balance = 2000m,
                             BankId = 3,
-                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(735),
+                            CreatedAt = new DateTime(2025, 12, 16, 0, 38, 59, 555, DateTimeKind.Utc).AddTicks(3363),
                             TypeId = 3,
                             UserId = 3
                         });
@@ -246,7 +246,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountId = 1,
                             CardHolderName = "Petr Grajciar",
                             CardNumber = "0123456789012345",
-                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(5212),
+                            CreatedAt = new DateTime(2025, 12, 16, 0, 38, 59, 555, DateTimeKind.Utc).AddTicks(6501),
                             ExpirationDate = new DateTime(2026, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             SecurityCode = "123",
@@ -258,7 +258,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountId = 2,
                             CardHolderName = "Karel Chleba",
                             CardNumber = "1234951274563654",
-                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(5384),
+                            CreatedAt = new DateTime(2025, 12, 16, 0, 38, 59, 555, DateTimeKind.Utc).AddTicks(6621),
                             ExpirationDate = new DateTime(2027, 8, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             SecurityCode = "213",
@@ -270,7 +270,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Migrations
                             AccountId = 3,
                             CardHolderName = "Šimon Rohlík",
                             CardNumber = "1478852365891452",
-                            CreatedAt = new DateTime(2025, 12, 15, 21, 24, 39, 418, DateTimeKind.Utc).AddTicks(5386),
+                            CreatedAt = new DateTime(2025, 12, 16, 0, 38, 59, 555, DateTimeKind.Utc).AddTicks(6622),
                             ExpirationDate = new DateTime(2025, 10, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsBlocked = false,
                             SecurityCode = "231",
