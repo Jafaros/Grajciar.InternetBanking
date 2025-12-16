@@ -15,7 +15,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
             Account account1 = new Account() { 
                 Id = 1,
                 UserId = 1,
-                AccountNumber = "123456789",
+                AccountNumber = "12345675324553489",
                 BankId = 1,
                 CreatedAt = DateTime.UtcNow,
                 Balance = 1000,
@@ -26,7 +26,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
             {
                 Id = 2,
                 UserId = 2,
-                AccountNumber = "321654987",
+                AccountNumber = "3216542132324987",
                 BankId = 2,
                 CreatedAt = DateTime.UtcNow,
                 Balance = 500,
@@ -37,7 +37,7 @@ namespace Grajciar.InternetBanking.Infrastructure.Database.Seeding
             {
                 Id = 3,
                 UserId = 3,
-                AccountNumber = "987654321",
+                AccountNumber = "98765534534544321",
                 BankId = 3,
                 CreatedAt = DateTime.UtcNow,
                 Balance = 2000,
